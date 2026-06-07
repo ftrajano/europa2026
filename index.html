@@ -60,12 +60,15 @@
   .plan-toggle button:hover{background:var(--accent-soft)}
   .plan-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
   .plan-toggle .desc{font-size:.86rem;color:var(--muted);margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
-  .only-b,.only-c{display:none}
-  body.plan-b .only-a,body.plan-b .only-c{display:none}
+  .only-b,.only-c,.only-d{display:none}
+  body.plan-b .only-a,body.plan-b .only-c,body.plan-b .only-d{display:none}
   body.plan-b .only-b{display:revert}
-  body.plan-c .only-a,body.plan-c .only-b{display:none}
+  body.plan-c .only-a,body.plan-c .only-b,body.plan-c .only-d{display:none}
   body.plan-c .only-c{display:revert}
   body.plan-c .hide-c{display:none}
+  body.plan-d .only-b,body.plan-d .only-c{display:none}
+  body.plan-d .only-d{display:revert}
+  body.plan-d .hide-d{display:none}
   /* abas */
   .tabs{display:flex;gap:8px;margin:22px 0 4px;flex-wrap:wrap}
   .tabs button{border:1px solid var(--accent);background:#fff;color:var(--accent);font:inherit;font-weight:700;font-size:.92rem;padding:10px 20px;border-radius:999px;cursor:pointer;transition:.15s}
@@ -118,11 +121,13 @@
       <button id="btn-a" class="active" onclick="setPlan('a')">Plano A · com Versalhes</button>
       <button id="btn-b" onclick="setPlan('b')">Plano B · +1 dia em Lucerna</button>
       <button id="btn-c" onclick="setPlan('c')">Plano C · volta de Praga</button>
+      <button id="btn-d" onclick="setPlan('d')">Plano D · Disney em 1 dia</button>
     </div>
     <div class="desc">
       <span class="only-a"><b>Plano A:</b> Versalhes no dia 29/09 e Suíça com Zurique (1 noite) + Lucerna (1 noite). Paris com 5 noites. Grupo B: Munique → Praga → Berlim, volta de Berlim.</span>
       <span class="only-b"><b>Plano B:</b> sem Versalhes; seguimos direto para Zurique já no dia 29/09. A Suíça ganha 1 noite extra, usada em <b>Lucerna (2 noites)</b>. Paris fica com 4 noites. Grupo B: Munique → Praga → Berlim, volta de Berlim.</span>
       <span class="only-c"><b>Plano C:</b> Paris e Suíça como no Plano A (com Versalhes). Mudança no final: o Grupo B segue <b>Munique → Berlim → Praga</b> e volta para Lisboa <b>de Praga</b> no dia 09/10 (voo direto TAP).</span>
+      <span class="only-d"><b>Plano D:</b> Disney em <b>1 dia</b> (sábado, dois parques no mesmo dia, ingresso Park Hopper). Assim a <b>irmã e a sobrinha participam</b> de Versalhes, Louvre, Notre-Dame, Arco do Triunfo e Montmartre junto com o resto do grupo. Suíça e demais cidades iguais ao Plano A.</span>
     </div>
   </div>
 
@@ -135,8 +140,10 @@
       <tr><td class="date">Qua 23/09</td><td class="city">Lisboa</td><td>Chegada (voo internacional)</td><td>🛏️</td></tr>
       <tr><td class="date">Qui 24/09</td><td>Lisboa</td><td>Dia inteiro na cidade</td><td>🛏️</td></tr>
       <tr><td class="date">Sex 25/09</td><td class="city">Paris</td><td>✈️ Voo Lisboa <b>08:47</b> → Paris <b>~12:15</b> (TP432) · tarde livre em Paris</td><td>🛏️</td></tr>
-      <tr><td class="date">Sáb 26/09</td><td>Paris</td><td>🎢 <b>Disney Dia 1</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
-      <tr><td class="date">Dom 27/09</td><td>Paris</td><td>🎢 <b>Disney Dia 2</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
+      <tr class="hide-d"><td class="date">Sáb 26/09</td><td>Paris</td><td>🎢 <b>Disney Dia 1</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
+      <tr class="hide-d"><td class="date">Dom 27/09</td><td>Paris</td><td>🎢 <b>Disney Dia 2</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Sáb 26/09</td><td>Paris</td><td>🎢 <b>Disney em 1 dia (2 parques)</b> — irmã + sobrinha (+ quem quiser)</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Dom 27/09</td><td>Paris</td><td>🗼 <b>Arco do Triunfo + Champs-Élysées + Montmartre</b> (grupo todo)</td><td>🛏️</td></tr>
       <tr><td class="date">Seg 28/09</td><td>Paris</td><td>🏛️ Paris cidade — Louvre, Île de la Cité, Notre-Dame (grupo todo)</td><td>🛏️</td></tr>
       <!-- Plano A -->
       <tr class="only-a"><td class="date">Ter 29/09</td><td>Paris</td><td>👑 <b>Versalhes</b> — dia inteiro (grupo todo)</td><td>🛏️</td></tr>
@@ -176,22 +183,73 @@
     <div class="best">Programa leve para descansar da viagem: <b>Torre Eiffel</b> e Champ de Mars, passeio pelo <b>Trocadéro</b> e um primeiro contato com o Sena. À noite, jantar tranquilo perto do hotel.</div>
   </div>
 
-  <div class="leg" style="border-left-color:#d23c8e">
+  <div class="leg hide-d" style="border-left-color:#d23c8e">
     <h4><span class="icon">🎢</span>Sáb 26 + Dom 27/09 · Disneyland Paris (irmã + sobrinha)</h4>
     <div class="meta">2 dias · RER A de Paris até <b>Marne-la-Vallée–Chessy</b>, na porta dos parques (~40 min)</div>
     <div class="best">Os 2 dias permitem fazer com calma os <b>dois parques</b>: o <b>Disneyland Park</b> (castelo, clássicos) num dia e o <b>Walt Disney Studios</b> no outro. <b>Dicas:</b> comprar ingresso com data marcada antecipadamente, baixar o app da Disneyland Paris para ver filas, e chegar na abertura. <b>Demais do grupo</b> nesses 2 dias: Montmartre e Sacré-Cœur, Marais, Museu d'Orsay, cruzeiro pelo Sena, Arco do Triunfo / Champs-Élysées.</div>
   </div>
 
+  <div class="leg only-d" style="border-left-color:#d23c8e">
+    <h4><span class="icon">🎢</span>Sáb 26/09 · Disneyland Paris em 1 dia (2 parques)</h4>
+    <div class="meta">RER A de Paris até <b>Marne-la-Vallée–Chessy</b> (~40 min) · ingresso <b>Park Hopper</b> obrigatório (passe entre os dois parques)</div>
+    <div class="best">
+      <b>Roteiro sugerido:</b><br>
+      • <b>07:00</b> sair do hotel (RER A direto)<br>
+      • <b>08:00</b> chegar a Marne-la-Vallée–Chessy<br>
+      • <b>08:30</b> abertura do <b>Disneyland Park</b> — clássicos primeiro (castelo da Bela Adormecida, Big Thunder Mountain, Peter Pan's Flight, Pirates of the Caribbean)<br>
+      • <b>12:30</b> almoço dentro do parque<br>
+      • <b>13:30</b> atravessar para o <b>Walt Disney Studios</b> — atrações temáticas (Crush's Coaster, Ratatouille, Avengers Campus, Tower of Terror)<br>
+      • <b>18:00</b> voltar ao Disneyland Park para a <b>parada de personagens</b> e o <b>show de luzes Disney Dreams!</b> no castelo (geralmente ~22h)<br>
+      • <b>22:30</b> RER de volta a Paris<br>
+      <b>Dicas:</b> chegue na abertura para os brinquedos mais concorridos sem fila, baixe o app oficial para Lightning Lanes (filas rápidas pagas) e reserve mesa para o jantar com antecedência. É um dia <b>longo</b> e cansativo — prepare-se para começar cedo.
+    </div>
+  </div>
+
+  <div class="leg only-d" style="border-left-color:#d23c8e">
+    <h4><span class="icon">🗼</span>Dom 27/09 · Arco do Triunfo + Champs-Élysées + Montmartre (grupo todo)</h4>
+    <div class="meta">Dia em ritmo de passeio · metrô + boas caminhadas</div>
+    <div class="best">
+      <b>Roteiro sugerido:</b><br>
+      • <b>09:30</b> metrô até <b>Charles de Gaulle–Étoile</b><br>
+      • <b>10:00</b> abertura do <b>Arco do Triunfo</b> — subir ao topo (284 degraus, ~50 m de altura, vista das 12 avenidas)<br>
+      • <b>11:30</b> descer a <b>Avenida Champs-Élysées</b> a pé até a <b>Place de la Concorde</b> (~2 km, com paradas)<br>
+      • <b>13:00</b> almoço pela região (Marais ou perto da Concorde)<br>
+      • <b>15:00</b> metrô linha 12 até <b>Abbesses</b> (Montmartre)<br>
+      • <b>15:30</b> subir até a <b>Basílica do Sacré-Cœur</b> e curtir a vista panorâmica de Paris<br>
+      • <b>16:30</b> <b>Place du Tertre</b> (artistas de rua, retratos), ruelas de Montmartre, Moulin de la Galette<br>
+      • <b>19:00</b> jantar num bistrô de Montmartre (clima boêmio à noite)<br>
+      <b>Dicas:</b> compre o ingresso do Arco do Triunfo online (evita fila); para chegar ao mirante, pegue o túnel pedestre sob a Place de l'Étoile, não atravesse a rotatória. Em Montmartre, cuidado com vendedores agressivos no entorno da Sacré-Cœur — apenas siga.
+    </div>
+  </div>
+
   <div class="leg" style="border-left-color:#d23c8e">
     <h4><span class="icon">🏛️</span>Seg 28/09 · Paris clássica (grupo todo)</h4>
-    <div class="meta">Segunda — atenção: Museu d'Orsay fecha às segundas; <b>Louvre abre</b></div>
-    <div class="best"><b>Louvre</b> de manhã (ingresso com horário marcado), depois <b>Île de la Cité</b>, exterior da <b>Notre-Dame</b>, Sainte-Chapelle e o <b>Quartier Latin</b>. Fim de tarde no <b>Jardim de Luxemburgo</b>.</div>
+    <div class="meta">Segunda — Museu d'Orsay fecha às segundas; <b>Louvre abre</b></div>
+    <div class="best">
+      <b>Roteiro sugerido:</b><br>
+      • <b>09:00</b> abertura do <b>Louvre</b> (Mona Lisa, Vênus de Milo, Vitória de Samotrácia, Coroação de Napoleão) — ingresso com <b>horário marcado</b>, prever ~3h dentro<br>
+      • <b>12:30</b> almoço pelo entorno do Louvre / Tuileries<br>
+      • <b>14:00</b> <b>Sainte-Chapelle</b> (vitrais do séc. XIII — ingresso recomendado online)<br>
+      • <b>15:30</b> exterior da <b>Notre-Dame</b> — reaberta após o incêndio em dez/2024 (interior tem entrada gratuita, mas <b>requer reserva online</b>)<br>
+      • <b>17:00</b> <b>Quartier Latin</b> + <b>Jardim de Luxemburgo</b> para descansar e fechar a tarde<br>
+      • <b>19:30</b> jantar pelo bairro (St-Germain-des-Prés)
+    </div>
   </div>
 
   <div class="leg only-a" style="border-left-color:#d23c8e">
     <h4><span class="icon">👑</span>Ter 29/09 · Palácio de Versalhes (grupo todo)</h4>
-    <div class="meta">Dia inteiro · trem RER C até <b>Versailles Château Rive Gauche</b> (~40 min)</div>
-    <div class="best">Terça é dia de semana = <b>menos fila</b> que no fim de semana. Reserve para o <b>palácio + jardins</b> (o Salão dos Espelhos e os jardins de Le Nôtre valem o dia inteiro). <b>Importante:</b> Versalhes <b>fecha às segundas</b> — por isso ficou na terça. Compre ingresso com horário marcado e vá cedo.</div>
+    <div class="meta">Dia inteiro · trem <b>RER C</b> de Paris até <b>Versailles Château Rive Gauche</b> (~40 min)</div>
+    <div class="best">
+      <b>Roteiro sugerido:</b><br>
+      • <b>07:45</b> sair do hotel (chegar cedo é essencial — Versalhes lota rápido, mesmo num dia de semana)<br>
+      • <b>08:45</b> chegar à estação Versailles Château Rive Gauche (~10 min a pé até o palácio)<br>
+      • <b>09:00</b> abertura do <b>Palácio</b> com horário marcado — <b>Salão dos Espelhos</b>, Aposentos Reais, Capela Real (~2-3h)<br>
+      • <b>12:30</b> almoço — <i>La Petite Venise</i> dentro dos jardins, ou levar piquenique<br>
+      • <b>14:00</b> <b>Jardins de Le Nôtre</b> + <b>Grande Trianon</b> + <b>Petit Trianon</b> + <b>Hameau de la Reine</b> (vilarejo rústico de Maria Antonieta) — alugue bicicletas ou pegue o trenzinho elétrico (são grandes distâncias)<br>
+      • <b>17:30</b> RER de volta a Paris<br>
+      • <b>19:30</b> jantar tranquilo (vai ser um dia cansativo)<br>
+      <b>Importante:</b> Versalhes <b>fecha às segundas</b> — por isso ficou na terça (dia de semana = menos fila). <b>Compre o ingresso "Passport" com horário marcado online</b> com bastante antecedência (inclui palácio + Trianons + jardins).
+    </div>
   </div>
 
   <div class="leg only-b" style="border-left-color:#d23c8e">
@@ -357,8 +415,12 @@
     <table>
       <thead><tr><th>Passeio</th><th>Obs.</th><th>Data</th><th>Quem</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Disneyland Paris (2 dias)</td><td>Ingresso com data marcada</td><td>26–27/09</td><td>Irmã + sobrinha</td><td><button class="tk" data-id="t12" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="hide-d"><td>Disneyland Paris (2 dias)</td><td>Ingresso com data marcada</td><td>26–27/09</td><td>Irmã + sobrinha</td><td><button class="tk" data-id="t12" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-d"><td>Disneyland Paris (1 dia)</td><td>Ingresso com data marcada + <b>Park Hopper</b> (2 parques)</td><td>26/09</td><td>Irmã + sobrinha (+ quem for)</td><td><button class="tk" data-id="t12d" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-d"><td>Arco do Triunfo (subir ao topo)</td><td>Ingresso com horário marcado</td><td>27/09</td><td>Todos (7)</td><td><button class="tk" data-id="t17" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr><td>Museu do Louvre</td><td>Horário marcado</td><td>28/09</td><td>Todos (7)</td><td><button class="tk" data-id="t13" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Sainte-Chapelle</td><td>Ingresso recomendado</td><td>28/09</td><td>Todos (7)</td><td><button class="tk" data-id="t18" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
+        <tr><td>Notre-Dame de Paris (interior)</td><td>Entrada gratuita, mas <b>requer reserva online</b></td><td>28/09</td><td>Todos (7)</td><td><button class="tk" data-id="t19" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
         <tr><td>Palácio de Versalhes</td><td>Só no Plano A · horário marcado</td><td>29/09</td><td>Todos (7)</td><td><button class="tk" data-id="t14" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr><td>Reichstag (cúpula)</td><td>Gratuito, mas exige reserva</td><td>07–08/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t15" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
         <tr><td>Castelo de Neuschwanstein</td><td>Tour guiado com horário marcado</td><td>04/10</td><td>Todos (7)</td><td><button class="tk" data-id="t16" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
@@ -375,12 +437,14 @@
 </div>
 <script>
   function setPlan(p){
-    document.body.classList.remove('plan-b', 'plan-c');
+    document.body.classList.remove('plan-b', 'plan-c', 'plan-d');
     if(p === 'b') document.body.classList.add('plan-b');
     if(p === 'c') document.body.classList.add('plan-c');
+    if(p === 'd') document.body.classList.add('plan-d');
     document.getElementById('btn-a').classList.toggle('active', p === 'a');
     document.getElementById('btn-b').classList.toggle('active', p === 'b');
     document.getElementById('btn-c').classList.toggle('active', p === 'c');
+    document.getElementById('btn-d').classList.toggle('active', p === 'd');
     if(typeof updateCount === 'function') updateCount();
   }
 
@@ -415,13 +479,14 @@
   }
   function isHiddenByPlan(el){
     var b = document.body;
-    var p = b.classList.contains('plan-c') ? 'c' : (b.classList.contains('plan-b') ? 'b' : 'a');
+    var p = b.classList.contains('plan-d') ? 'd' : (b.classList.contains('plan-c') ? 'c' : (b.classList.contains('plan-b') ? 'b' : 'a'));
     for(var n = el; n && n.nodeType === 1; n = n.parentNode){
       var cl = n.classList;
       if(!cl) continue;
-      if(p === 'a' && (cl.contains('only-b') || cl.contains('only-c'))) return true;
-      if(p === 'b' && (cl.contains('only-a') || cl.contains('only-c'))) return true;
-      if(p === 'c' && (cl.contains('only-a') || cl.contains('only-b') || cl.contains('hide-c'))) return true;
+      if(p === 'a' && (cl.contains('only-b') || cl.contains('only-c') || cl.contains('only-d'))) return true;
+      if(p === 'b' && (cl.contains('only-a') || cl.contains('only-c') || cl.contains('only-d'))) return true;
+      if(p === 'c' && (cl.contains('only-a') || cl.contains('only-b') || cl.contains('only-d') || cl.contains('hide-c'))) return true;
+      if(p === 'd' && (cl.contains('only-b') || cl.contains('only-c') || cl.contains('hide-d'))) return true;
     }
     return false;
   }

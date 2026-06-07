@@ -60,9 +60,12 @@
   .plan-toggle button:hover{background:var(--accent-soft)}
   .plan-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
   .plan-toggle .desc{font-size:.86rem;color:var(--muted);margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
-  .only-b{display:none}
-  body.plan-b .only-a{display:none}
+  .only-b,.only-c{display:none}
+  body.plan-b .only-a,body.plan-b .only-c{display:none}
   body.plan-b .only-b{display:revert}
+  body.plan-c .only-a,body.plan-c .only-b{display:none}
+  body.plan-c .only-c{display:revert}
+  body.plan-c .hide-c{display:none}
   /* abas */
   .tabs{display:flex;gap:8px;margin:22px 0 4px;flex-wrap:wrap}
   .tabs button{border:1px solid var(--accent);background:#fff;color:var(--accent);font:inherit;font-weight:700;font-size:.92rem;padding:10px 20px;border-radius:999px;cursor:pointer;transition:.15s}
@@ -104,7 +107,7 @@
     <div class="gcard b">
       <span class="tag">GRUPO B</span>
       <h3>3 adultos</h3>
-      <p>Seguem Munique → Praga → Berlim e voltam dia <b>09/10</b> (voo Berlim → Lisboa → Brasil).</p>
+      <p><span class="hide-c">Seguem Munique → Praga → Berlim e voltam dia <b>09/10</b> (voo Berlim → Lisboa → Brasil).</span><span class="only-c">Seguem Munique → Berlim → Praga e voltam dia <b>09/10</b> (voo Praga → Lisboa → Brasil).</span></p>
     </div>
   </div>
   <p style="font-size:.9rem;color:var(--muted);margin-top:-6px">Os dois grupos ficam juntos de <b>23/09 até 05/10</b>. A separação acontece em Munique no dia 05/10.</p>
@@ -114,10 +117,12 @@
     <div class="btns">
       <button id="btn-a" class="active" onclick="setPlan('a')">Plano A · com Versalhes</button>
       <button id="btn-b" onclick="setPlan('b')">Plano B · +1 dia em Lucerna</button>
+      <button id="btn-c" onclick="setPlan('c')">Plano C · volta de Praga</button>
     </div>
     <div class="desc">
-      <span class="only-a"><b>Plano A:</b> Versalhes no dia 29/09 e seguimos para a Suíça no dia 30 — Zurique (1 noite) + Lucerna (1 noite). Paris com 5 noites.</span>
-      <span class="only-b"><b>Plano B:</b> sem Versalhes; seguimos direto para Zurique já no dia 29/09. A Suíça ganha 1 noite extra, usada em <b>Lucerna (2 noites)</b>. Paris fica com 4 noites. O trecho a partir de Munique não muda.</span>
+      <span class="only-a"><b>Plano A:</b> Versalhes no dia 29/09 e Suíça com Zurique (1 noite) + Lucerna (1 noite). Paris com 5 noites. Grupo B: Munique → Praga → Berlim, volta de Berlim.</span>
+      <span class="only-b"><b>Plano B:</b> sem Versalhes; seguimos direto para Zurique já no dia 29/09. A Suíça ganha 1 noite extra, usada em <b>Lucerna (2 noites)</b>. Paris fica com 4 noites. Grupo B: Munique → Praga → Berlim, volta de Berlim.</span>
+      <span class="only-c"><b>Plano C:</b> Paris e Suíça como no Plano A (com Versalhes). Mudança no final: o Grupo B segue <b>Munique → Berlim → Praga</b> e volta para Lisboa <b>de Praga</b> no dia 09/10 (voo direto TAP).</span>
     </div>
   </div>
 
@@ -144,15 +149,23 @@
       <tr><td class="date">Sex 02/10</td><td class="city">Munique</td><td>🚆 Trem Lucerna <b>~06:34</b> → Munique <b>~11:05</b> (~4h30, baldeação em Zurique) · tarde livre</td><td>🛏️</td></tr>
       <tr><td class="date">Sáb 03/10</td><td>Munique</td><td>🍺 <b>Oktoberfest</b> (último fim de semana!) + centro de Munique</td><td>🛏️</td></tr>
       <tr><td class="date">Dom 04/10</td><td>Munique</td><td>🏰 Bate-volta ao <b>Castelo de Neuschwanstein</b> (dia inteiro)</td><td>🛏️</td></tr>
-      <tr class="split-row"><td class="date">Dom 05/10</td><td>SEPARAÇÃO</td><td>Grupo A: ✈️ <b>TP551 Munique 06:05 → Lisboa 08:20</b> → Brasil &nbsp;·&nbsp; Grupo B: 🚆 trem alex Munique <b>~06:53</b> → Praga <b>~12:30</b> (~5h38, direto)</td><td>A volta<br>B 🛏️ Praga</td></tr>
-      <tr><td class="date">Seg 06/10</td><td class="city">Praga <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
-      <tr><td class="date">Ter 07/10</td><td class="city">Berlim <small>(B)</small></td><td>🚄 EC Praga <b>06:30</b> → Berlim <b>~10:45</b> (~4h15)</td><td>🛏️</td></tr>
-      <tr><td class="date">Qua 08/10</td><td>Berlim <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
-      <tr><td class="date">Qui 09/10</td><td>volta <small>(B)</small></td><td>✈️ Berlim → Lisboa → Brasil (TAP direto ~3h45)</td><td>—</td></tr>
+      <!-- Planos A/B: Munique → Praga → Berlim -->
+      <tr class="split-row hide-c"><td class="date">Dom 05/10</td><td>SEPARAÇÃO</td><td>Grupo A: ✈️ <b>TP551 Munique 06:05 → Lisboa 08:20</b> → Brasil &nbsp;·&nbsp; Grupo B: 🚆 trem alex Munique <b>~06:53</b> → Praga <b>~12:30</b> (~5h38, direto)</td><td>A volta<br>B 🛏️ Praga</td></tr>
+      <tr class="hide-c"><td class="date">Seg 06/10</td><td class="city">Praga <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
+      <tr class="hide-c"><td class="date">Ter 07/10</td><td class="city">Berlim <small>(B)</small></td><td>🚄 EC Praga <b>06:30</b> → Berlim <b>~10:45</b> (~4h15)</td><td>🛏️</td></tr>
+      <tr class="hide-c"><td class="date">Qua 08/10</td><td>Berlim <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
+      <tr class="hide-c"><td class="date">Qui 09/10</td><td>volta <small>(B)</small></td><td>✈️ Berlim → Lisboa → Brasil (TAP direto ~3h45)</td><td>—</td></tr>
+      <!-- Plano C: Munique → Berlim → Praga -->
+      <tr class="split-row only-c"><td class="date">Dom 05/10</td><td>SEPARAÇÃO</td><td>Grupo A: ✈️ <b>TP551 Munique 06:05 → Lisboa 08:20</b> → Brasil &nbsp;·&nbsp; Grupo B: 🚄 ICE Sprinter Munique <b>~06:00</b> → Berlim <b>~09:55</b> (~3h55, direto)</td><td>A volta<br>B 🛏️ Berlim</td></tr>
+      <tr class="only-c"><td class="date">Seg 06/10</td><td class="city">Berlim <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
+      <tr class="only-c"><td class="date">Ter 07/10</td><td class="city">Praga <small>(B)</small></td><td>🚄 EC Berlim <b>~06:36</b> → Praga <b>~11:00</b> (~4h20)</td><td>🛏️</td></tr>
+      <tr class="only-c"><td class="date">Qua 08/10</td><td>Praga <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
+      <tr class="only-c"><td class="date">Qui 09/10</td><td>volta <small>(B)</small></td><td>✈️ Praga → Lisboa → Brasil (TAP direto ~3h50)</td><td>—</td></tr>
     </tbody>
   </table>
   <div class="nights only-a"><b>Noites (Plano A):</b> Lisboa 2 · Paris 5 · Zurique 1 · Lucerna 1 · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
   <div class="nights only-b"><b>Noites (Plano B):</b> Lisboa 2 · Paris 4 · Zurique 1 · <b>Lucerna 2</b> · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
+  <div class="nights only-c"><b>Noites (Plano C):</b> Lisboa 2 · Paris 5 · Zurique 1 · Lucerna 1 · Munique 3 &nbsp;|&nbsp; Grupo B: <b>Berlim 2 · Praga 2</b></div>
 
   <h2 class="section">🗼 Passeios em Paris<span class="only-a"> (25–29/09)</span><span class="only-b"> (25–28/09)</span></h2>
   <p style="font-size:.9rem;color:var(--muted);margin-top:-4px">A irmã e a sobrinha fazem <b>2 dias de Disney</b> no fim de semana; quem quiser pode acompanhar. <span class="only-a">O <b>grupo todo</b> faz Paris cidade na segunda e <b>Versalhes</b> na terça.</span><span class="only-b">O <b>grupo todo</b> faz Paris cidade na segunda e segue para a Suíça na terça (sem Versalhes).</span></p>
@@ -253,21 +266,33 @@
     <div class="best">Como Lucerna fica "abaixo" de Zurique, o trajeto passa de volta por lá. Saindo ~06:34 você chega a Munique por volta das 11h, ganhando a tarde inteira na cidade. Há saídas ainda mais cedo, se quiser.</div>
   </div>
 
-  <div class="leg">
+  <div class="leg hide-c">
     <h4><span class="icon">🚆</span>5. Munique → Praga · trem direto alex (05/10) · Grupo B</h4>
     <div class="meta"><b>Munique ~06:53 → Praga ~12:30</b> · ~5h38 · trem direto <b>alex (RE25)</b> via Regensburg e Plzeň · ~5 a 7 saídas/dia (a cada ~2h)</div>
     <div class="best"><b>Sim, há trem direto!</b> O <b>alex</b> (Die Länderbahn) faz Munique–Praga <b>sem troca de trem</b> (a locomotiva muda em Regensburg/Schwandorf, mas você permanece no mesmo lugar). Como sua preferência é trem na ida, é a melhor opção — saindo de manhã cedo, chega a Praga por volta do meio-dia. <b>Alternativa:</b> ônibus RegioJet (~5h30, confortável e barato), caso os horários do trem não encaixem.</div>
   </div>
 
-  <div class="leg">
+  <div class="leg only-c">
+    <h4><span class="icon">🚄</span>5. Munique → Berlim · ICE Sprinter (05/10) · Grupo B</h4>
+    <div class="meta"><b>Munique ~06:00 → Berlim ~09:55</b> · ~3h55 · <b>ICE Sprinter</b> direto · até 16 saídas/dia</div>
+    <div class="best">O <b>ICE Sprinter</b> é o trem de alta velocidade direto Munique–Berlim — um dos mais rápidos da Alemanha. Saindo logo cedo o Grupo B chega a Berlim antes das 10h, com o dia praticamente inteiro livre na cidade.</div>
+  </div>
+
+  <div class="leg hide-c">
     <h4><span class="icon">🚄</span>6. Praga → Berlim · EuroCity (07/10) · Grupo B</h4>
     <div class="meta">Trem direto EC <b>Praga 06:30 → Berlim ~10:45</b> · ~4h15 · 7 saídas/dia (de 2 em 2h)</div>
     <div class="best">O <b>primeiro EC sai ~06:30</b> e chega a Berlim antes das 11h — tarde inteira livre. Um dos trajetos mais bonitos da Europa, acompanhando o <b>vale do rio Elba</b>; sente do <b>lado esquerdo</b> (sentido Berlim) para a melhor vista.</div>
   </div>
 
+  <div class="leg only-c">
+    <h4><span class="icon">🚄</span>6. Berlim → Praga · EuroCity (07/10) · Grupo B</h4>
+    <div class="meta">Trem direto EC <b>Berlim ~06:36 → Praga ~11:00</b> · ~4h20 · 7 saídas/dia (de 2 em 2h)</div>
+    <div class="best">Mesmo trajeto cênico do plano A/B, no sentido contrário. Acompanha o <b>vale do rio Elba</b>; para a melhor vista, sente do <b>lado direito</b> (sentido Praga).</div>
+  </div>
+
   <div class="leg">
     <h4><span class="icon">✈️</span>7. Voltas para Lisboa · avião</h4>
-    <div class="meta">Grupo A (05/10): <b>TP551 Munique (T2) 06:05 → Lisboa (T1) 08:20</b>, TAP direto ~3h15 &nbsp;·&nbsp; Grupo B (09/10): Berlim → Lisboa, TAP direto ~3h45</div>
+    <div class="meta">Grupo A (05/10): <b>TP551 Munique (T2) 06:05 → Lisboa (T1) 08:20</b>, TAP direto ~3h15 &nbsp;·&nbsp; Grupo B (09/10): <span class="hide-c">Berlim → Lisboa, TAP direto ~3h45</span><span class="only-c">Praga → Lisboa, TAP direto ~3h50 (atenção: TAP opera ~7 voos/semana; confirme se há saída em 09/10, uma quinta)</span></div>
     <div class="best"><b>Grupo A:</b> chegando a Lisboa às 08:20, sobra bastante folga para conectar com o voo intercontinental ao Brasil no mesmo dia. Como o TP551 sai cedo, vale <b>dormir perto do aeroporto de Munique na noite de 04/10</b>. <b>Atenção à conexão:</b> confirme o horário do voo Lisboa → Brasil antes de fechar os trechos.</div>
   </div>
 
@@ -319,9 +344,12 @@
         <tr><td>Zurique → Lucerna</td><td>🚆 Trem regional</td><td>01/10 (A) · 30/09 (B)</td><td>Todos (7)</td><td><button class="tk" data-id="t6" onclick="toggleTicket(this)">⬜ Compra no dia</button></td></tr>
         <tr><td>Lucerna → Munique</td><td>🚆 Trem (EC)</td><td>02/10</td><td>Todos (7)</td><td><button class="tk" data-id="t7" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr><td>Munique → Lisboa</td><td>✈️ TAP TP551</td><td>05/10</td><td>Grupo A (3+1)</td><td><button class="tk" data-id="t8" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr><td>Munique → Praga</td><td>🚆 Trem alex (ou ônibus)</td><td>05/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t9" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr><td>Praga → Berlim</td><td>🚄 EuroCity</td><td>07/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t10" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr><td>Berlim → Lisboa</td><td>✈️ TAP</td><td>09/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t11" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="hide-c"><td>Munique → Praga</td><td>🚆 Trem alex (ou ônibus)</td><td>05/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t9" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="hide-c"><td>Praga → Berlim</td><td>🚄 EuroCity</td><td>07/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t10" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="hide-c"><td>Berlim → Lisboa</td><td>✈️ TAP</td><td>09/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t11" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-c"><td>Munique → Berlim</td><td>🚄 ICE Sprinter</td><td>05/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t9c" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-c"><td>Berlim → Praga</td><td>🚄 EuroCity</td><td>07/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t10c" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-c"><td>Praga → Lisboa</td><td>✈️ TAP</td><td>09/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t11c" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
       </tbody>
     </table>
 
@@ -347,10 +375,13 @@
 </div>
 <script>
   function setPlan(p){
-    var b = (p === 'b');
-    document.body.classList.toggle('plan-b', b);
-    document.getElementById('btn-a').classList.toggle('active', !b);
-    document.getElementById('btn-b').classList.toggle('active', b);
+    document.body.classList.remove('plan-b', 'plan-c');
+    if(p === 'b') document.body.classList.add('plan-b');
+    if(p === 'c') document.body.classList.add('plan-c');
+    document.getElementById('btn-a').classList.toggle('active', p === 'a');
+    document.getElementById('btn-b').classList.toggle('active', p === 'b');
+    document.getElementById('btn-c').classList.toggle('active', p === 'c');
+    if(typeof updateCount === 'function') updateCount();
   }
 
   function showTab(t){
@@ -382,11 +413,28 @@
       if(s[b.dataset.id]){ b.classList.add('done'); b.textContent = '✅ Comprada'; }
     });
   }
+  function isHiddenByPlan(el){
+    var b = document.body;
+    var p = b.classList.contains('plan-c') ? 'c' : (b.classList.contains('plan-b') ? 'b' : 'a');
+    for(var n = el; n && n.nodeType === 1; n = n.parentNode){
+      var cl = n.classList;
+      if(!cl) continue;
+      if(p === 'a' && (cl.contains('only-b') || cl.contains('only-c'))) return true;
+      if(p === 'b' && (cl.contains('only-a') || cl.contains('only-c'))) return true;
+      if(p === 'c' && (cl.contains('only-a') || cl.contains('only-b') || cl.contains('hide-c'))) return true;
+    }
+    return false;
+  }
   function updateCount(){
-    var all = document.querySelectorAll('.tk').length;
-    var done = document.querySelectorAll('.tk.done').length;
+    var ticks = document.querySelectorAll('.tk');
+    var visible = 0, done = 0;
+    ticks.forEach(function(b){
+      if(isHiddenByPlan(b)) return;
+      visible++;
+      if(b.classList.contains('done')) done++;
+    });
     var el = document.getElementById('tk-count');
-    if(el) el.textContent = done + ' de ' + all + ' marcadas como compradas.';
+    if(el) el.textContent = done + ' de ' + visible + ' marcadas como compradas.';
   }
   // inicialização (script no fim do body, DOM já pronto)
   document.querySelectorAll('.tk').forEach(function(b){ if(!b.dataset.pending) b.dataset.pending = b.textContent; });

@@ -63,7 +63,7 @@
   .only-b,.only-c,.only-d{display:none}
   body.plan-b .only-a,body.plan-b .only-c,body.plan-b .only-d{display:none}
   body.plan-b .only-b{display:revert}
-  body.plan-c .only-a,body.plan-c .only-b,body.plan-c .only-d{display:none}
+  body.plan-c .only-b,body.plan-c .only-d{display:none}
   body.plan-c .only-c{display:revert}
   body.plan-c .hide-c{display:none}
   body.plan-d .only-b,body.plan-d .only-c{display:none}
@@ -139,15 +139,17 @@
     <tbody>
       <tr><td class="date">Qua 23/09</td><td class="city">Lisboa</td><td>Chegada (voo internacional)</td><td>🛏️</td></tr>
       <tr><td class="date">Qui 24/09</td><td>Lisboa</td><td>Dia inteiro na cidade</td><td>🛏️</td></tr>
-      <tr><td class="date">Sex 25/09</td><td class="city">Paris</td><td>✈️ Voo Lisboa <b>08:47</b> → Paris <b>~12:15</b> (TP432) · tarde livre em Paris</td><td>🛏️</td></tr>
+      <tr class="hide-d"><td class="date">Sex 25/09</td><td class="city">Paris</td><td>✈️ Voo Lisboa <b>08:47</b> → Paris <b>~12:15</b> (TP432) · tarde livre em Paris</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Sex 25/09</td><td class="city">Paris</td><td>✈️ Voo Lisboa <b>08:47</b> → Paris <b>~12:15</b> (TP432) · <b>Montmartre + cruzeiro no Sena</b></td><td>🛏️</td></tr>
       <tr class="hide-d"><td class="date">Sáb 26/09</td><td>Paris</td><td>🎢 <b>Disney Dia 1</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
       <tr class="hide-d"><td class="date">Dom 27/09</td><td>Paris</td><td>🎢 <b>Disney Dia 2</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Sáb 26/09</td><td>Paris</td><td>🏛️ Paris clássica — <b>Louvre, Île de la Cité, Notre-Dame</b> (grupo todo)</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Dom 27/09</td><td>Paris</td><td>🗼 <b>Arco do Triunfo + Champs-Élysées + Montmartre</b> (grupo todo)</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Sáb 26/09</td><td>Paris</td><td>🗼 <b>Paris clássico</b> — Île de la Cité + Notre-Dame + Champs-Élysées + Arco do Triunfo + Torre Eiffel</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Dom 27/09</td><td>Paris</td><td>🆓 <b>Dia livre</b> — descanso, compras ou opcional (d'Orsay, Marais, bate-volta a Giverny)</td><td>🛏️</td></tr>
       <tr class="hide-d"><td class="date">Seg 28/09</td><td>Paris</td><td>🏛️ Paris cidade — Louvre, Île de la Cité, Notre-Dame (grupo todo)</td><td>🛏️</td></tr>
       <tr class="only-d"><td class="date">Seg 28/09</td><td>Paris</td><td>🎢 <b>Disney em 1 dia (2 parques)</b> — irmã + sobrinha (+ quem quiser) · segunda = menos fila</td><td>🛏️</td></tr>
       <!-- Plano A -->
-      <tr class="only-a"><td class="date">Ter 29/09</td><td>Paris</td><td>👑 <b>Versalhes</b> — dia inteiro (grupo todo)</td><td>🛏️</td></tr>
+      <tr class="only-a hide-d"><td class="date">Ter 29/09</td><td>Paris</td><td>👑 <b>Versalhes</b> — dia inteiro (grupo todo)</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Ter 29/09</td><td>Paris</td><td>🏛️👑 <b>Louvre (manhã) + Versalhes (tarde)</b> — dia corrido</td><td>🛏️</td></tr>
       <tr class="only-a"><td class="date">Qua 30/09</td><td class="city">Zurique</td><td>🚄 TGV Lyria Paris G. de Lyon <b>07:22</b> → Zurique <b>~11:26</b> (~4h04)</td><td>🛏️</td></tr>
       <tr class="only-a"><td class="date">Qui 01/10</td><td class="city">Lucerna</td><td>🚆 Trem Zurique <b>~07:05</b> → Lucerna <b>~07:50</b> (45 min)</td><td>🛏️</td></tr>
       <!-- Plano B -->
@@ -178,10 +180,27 @@
   <h2 class="section">🗼 Passeios em Paris<span class="only-a"> (25–29/09)</span><span class="only-b"> (25–28/09)</span></h2>
   <p style="font-size:.9rem;color:var(--muted);margin-top:-4px">A irmã e a sobrinha fazem <b>2 dias de Disney</b> no fim de semana; quem quiser pode acompanhar. <span class="only-a">O <b>grupo todo</b> faz Paris cidade na segunda e <b>Versalhes</b> na terça.</span><span class="only-b">O <b>grupo todo</b> faz Paris cidade na segunda e segue para a Suíça na terça (sem Versalhes).</span></p>
 
-  <div class="leg" style="border-left-color:#d23c8e">
+  <div class="leg hide-d" style="border-left-color:#d23c8e">
     <h4><span class="icon">🛬</span>Sex 25/09 · Chegada + tarde livre</h4>
     <div class="meta">Chegada a Paris ~12:15 · check-in no hotel</div>
     <div class="best">Programa leve para descansar da viagem: <b>Torre Eiffel</b> e Champ de Mars, passeio pelo <b>Trocadéro</b> e um primeiro contato com o Sena. À noite, jantar tranquilo perto do hotel.</div>
+  </div>
+
+  <div class="leg only-d" style="border-left-color:#d23c8e">
+    <h4><span class="icon">🛬</span>Sex 25/09 · Chegada + Montmartre + Cruzeiro no Sena</h4>
+    <div class="meta">Chegada a Paris ~12:15 · check-in ~13:30-14:00</div>
+    <div class="best">
+      <b>Roteiro sugerido:</b><br>
+      • <b>12:15</b> aterrissagem em Paris (CDG ou Orly) · transfer/RER ao hotel<br>
+      • <b>13:30–14:30</b> check-in e descanso curto<br>
+      • <b>14:45</b> metrô linha 12 até <b>Abbesses</b> (Montmartre)<br>
+      • <b>15:00</b> <b>Sacré-Cœur</b>, vista panorâmica de Paris<br>
+      • <b>15:45</b> <b>Place du Tertre</b> (pintores e retratistas) e ruelas de Montmartre<br>
+      • <b>17:30</b> metrô até <b>Pont Neuf</b> ou <b>Pont de l'Alma</b><br>
+      • <b>18:30</b> <b>cruzeiro de 1h pelo Sena</b> (<i>Bateaux Mouches</i>, <i>Vedettes du Pont-Neuf</i> ou <i>Bateaux Parisiens</i>) — pegará o pôr do sol e as primeiras luzes da cidade<br>
+      • <b>20:00</b> jantar pelo entorno (Marais ou St-Germain)<br>
+      <b>Dicas:</b> compre o cruzeiro online antecipado para evitar fila; em Montmartre, fique atento a vendedores agressivos na escadaria do Sacré-Cœur. Programa moderado por ser o dia de chegada.
+    </div>
   </div>
 
   <div class="leg hide-d" style="border-left-color:#d23c8e">
@@ -207,19 +226,16 @@
   </div>
 
   <div class="leg only-d" style="border-left-color:#d23c8e">
-    <h4><span class="icon">🗼</span>Dom 27/09 · Arco do Triunfo + Champs-Élysées + Montmartre (grupo todo)</h4>
-    <div class="meta">Dia em ritmo de passeio · metrô + boas caminhadas</div>
+    <h4><span class="icon">🆓</span>Dom 27/09 · Dia livre (grupo todo)</h4>
+    <div class="meta">Sem programa obrigatório — descanso ou opcional</div>
     <div class="best">
-      <b>Roteiro sugerido:</b><br>
-      • <b>09:30</b> metrô até <b>Charles de Gaulle–Étoile</b><br>
-      • <b>10:00</b> abertura do <b>Arco do Triunfo</b> — subir ao topo (284 degraus, ~50 m de altura, vista das 12 avenidas)<br>
-      • <b>11:30</b> descer a <b>Avenida Champs-Élysées</b> a pé até a <b>Place de la Concorde</b> (~2 km, com paradas)<br>
-      • <b>13:00</b> almoço pela região (Marais ou perto da Concorde)<br>
-      • <b>15:00</b> metrô linha 12 até <b>Abbesses</b> (Montmartre)<br>
-      • <b>15:30</b> subir até a <b>Basílica do Sacré-Cœur</b> e curtir a vista panorâmica de Paris<br>
-      • <b>16:30</b> <b>Place du Tertre</b> (artistas de rua, retratos), ruelas de Montmartre, Moulin de la Galette<br>
-      • <b>19:00</b> jantar num bistrô de Montmartre (clima boêmio à noite)<br>
-      <b>Dicas:</b> compre o ingresso do Arco do Triunfo online (evita fila); para chegar ao mirante, pegue o túnel pedestre sob a Place de l'Étoile, não atravesse a rotatória. Em Montmartre, cuidado com vendedores agressivos no entorno da Sacré-Cœur — apenas siga.
+      Dia para respirar entre o Paris clássico de sábado e o dia corrido de segunda (Disney) + terça (Louvre + Versalhes). Algumas sugestões caso queira aproveitar:<br><br>
+      • <b>Museu d'Orsay</b> (impressionistas: Monet, Renoir, Van Gogh, Degas) — domingo é ótimo, já que fecha às segundas<br>
+      • <b>Marais</b> — bairro histórico judeu e gay, ótimo para almoçar e fazer compras (Place des Vosges, Marche des Enfants Rouges)<br>
+      • <b>Bate-volta a Giverny</b> (jardins de Monet, ~1h de trem de Saint-Lazare) — passa o dia inteiro, dá para fazer<br>
+      • <b>Bate-volta a Reims</b> (~50 min de trem, capital do champagne) — visita a uma <i>maison</i>, catedral gótica<br>
+      • <b>Disneyland Studios noturno</b> ou <b>shopping em Champs-Élysées</b><br>
+      • Ou simplesmente <b>descanso</b> no hotel para chegar com energia em segunda e terça.
     </div>
   </div>
 
@@ -238,20 +254,25 @@
   </div>
 
   <div class="leg only-d" style="border-left-color:#d23c8e">
-    <h4><span class="icon">🏛️</span>Sáb 26/09 · Paris clássica (grupo todo)</h4>
-    <div class="meta">Sábado — Louvre aberto (mais movimentado que dia de semana; chegar na abertura faz muita diferença)</div>
+    <h4><span class="icon">🗼</span>Sáb 26/09 · Paris clássico (grupo todo)</h4>
+    <div class="meta">Dia inteiro · Île de la Cité + Notre-Dame + Champs-Élysées + Arco do Triunfo + Torre Eiffel · muita caminhada — calce sapato confortável</div>
     <div class="best">
       <b>Roteiro sugerido:</b><br>
-      • <b>09:00</b> abertura do <b>Louvre</b> (Mona Lisa, Vênus de Milo, Vitória de Samotrácia, Coroação de Napoleão) — ingresso com <b>horário marcado</b>, prever ~3h dentro<br>
-      • <b>12:30</b> almoço pelo entorno do Louvre / Tuileries<br>
-      • <b>14:00</b> <b>Sainte-Chapelle</b> (vitrais do séc. XIII — ingresso recomendado online)<br>
-      • <b>15:30</b> exterior da <b>Notre-Dame</b> — reaberta após o incêndio em dez/2024 (interior tem entrada gratuita, mas <b>requer reserva online</b>)<br>
-      • <b>17:00</b> <b>Quartier Latin</b> + <b>Jardim de Luxemburgo</b> para descansar e fechar a tarde<br>
-      • <b>19:30</b> jantar pelo bairro (St-Germain-des-Prés)
+      • <b>09:00</b> abertura da <b>Sainte-Chapelle</b> (vitrais do séc. XIII — ingresso recomendado online)<br>
+      • <b>10:30</b> <b>Notre-Dame de Paris</b> (interior gratuito, mas <b>requer reserva online</b>; reaberta dez/2024)<br>
+      • <b>11:30</b> caminhada pela <b>Île de la Cité</b> e Pont Neuf<br>
+      • <b>12:30</b> almoço no bairro<br>
+      • <b>14:00</b> metrô até <b>Concorde</b> · descer a <b>Champs-Élysées</b> a pé (~2 km, com paradas)<br>
+      • <b>16:00</b> <b>Arco do Triunfo</b> — subir ao topo (284 degraus, vista das 12 avenidas) · ingresso online evita fila<br>
+      • <b>17:30</b> metrô até <b>Trocadéro</b> — vista clássica da Torre Eiffel para fotos<br>
+      • <b>18:30</b> atravessar a ponte para a <b>Torre Eiffel</b> · Champ de Mars · subir ao topo se quiser (compre online com antecedência)<br>
+      • <b>20:00</b> jantar pelo entorno<br>
+      • <b>21:00</b> show de luzes da Torre Eiffel (5 min, no início de cada hora)<br>
+      <b>Dicas:</b> reserve <b>Sainte-Chapelle, Notre-Dame, Arco do Triunfo e Torre Eiffel</b> online com antecedência. Para o Arco, use o túnel pedestre sob a rotatória (não atravesse a pé).
     </div>
   </div>
 
-  <div class="leg only-a" style="border-left-color:#d23c8e">
+  <div class="leg only-a hide-d" style="border-left-color:#d23c8e">
     <h4><span class="icon">👑</span>Ter 29/09 · Palácio de Versalhes (grupo todo)</h4>
     <div class="meta">Dia inteiro · trem <b>RER C</b> de Paris até <b>Versailles Château Rive Gauche</b> (~40 min)</div>
     <div class="best">
@@ -267,6 +288,30 @@
     </div>
   </div>
 
+  <div class="leg only-d" style="border-left-color:#d23c8e">
+    <h4><span class="icon">🏛️👑</span>Ter 29/09 · Louvre (manhã) + Versalhes (tarde) — grupo todo</h4>
+    <div class="meta">Dia <b>corrido</b> — combina dois pesos-pesados num só dia · ingresso com horário marcado nos dois</div>
+    <div class="best">
+      <b>Roteiro sugerido:</b><br>
+      • <b>08:30</b> sair do hotel cedo<br>
+      • <b>09:00</b> abertura do <b>Louvre</b> (entrada Carrossel, evita fila da Pirâmide) — ingresso com horário marcado<br>
+      • <b>09:15–11:30</b> tour rápido pelos clássicos: <b>Mona Lisa</b>, <b>Vênus de Milo</b>, <b>Vitória de Samotrácia</b>, <b>Coroação de Napoleão</b> (foque só nas obras-chave, não dá para ver muito mais)<br>
+      • <b>11:30</b> sair pelo Carrossel, walk até <b>RER C Musée d'Orsay</b> (ou St-Michel-Notre-Dame)<br>
+      • <b>12:00</b> RER C direto até <b>Versailles Château Rive Gauche</b> (~40 min)<br>
+      • <b>12:45</b> chegada · almoço rápido perto da estação<br>
+      • <b>14:00</b> entrada no <b>Palácio</b> (ingresso com horário marcado) — <b>Salão dos Espelhos</b>, Aposentos Reais, Capela Real (~2h)<br>
+      • <b>16:00</b> <b>Jardins de Le Nôtre</b> — passeio leve, fontes (se sobrar tempo, Petit Trianon de bicicleta)<br>
+      • <b>18:00</b> RER C de volta a Paris (~40 min)<br>
+      • <b>19:30</b> jantar (provavelmente perto do hotel — vão estar exaustos)<br>
+      <b>Importante:</b> esse é um dia <b>realmente corrido</b>. Para que dê certo:<br>
+      • Reserve o Louvre na <b>primeira janela do dia (09h)</b> e Versalhes para <b>14:00 (afternoon slot)</b><br>
+      • No Louvre, foque exclusivamente nos clássicos — não tente "explorar"<br>
+      • Em Versalhes, priorize o <b>palácio</b>; jardins e Trianons só se sobrar tempo<br>
+      • Considere <b>pular o jantar fora</b> e comer algo leve no hotel<br>
+      <b>Alternativa:</b> se preferir ter dia mais tranquilo, dá para fazer só Versalhes (deixando o Louvre para outro dia, mas aí a programação do Plano D precisa ser ajustada).
+    </div>
+  </div>
+
   <div class="leg only-b" style="border-left-color:#d23c8e">
     <h4><span class="icon">🚄</span>Ter 29/09 · Rumo à Suíça (sem Versalhes)</h4>
     <div class="meta">Saída de manhã de Paris para Zurique (ver Trecho 2)</div>
@@ -279,8 +324,8 @@
   </div>
 
   <div class="callout warn only-d" style="background:var(--accent-soft);border-color:#bcd0f5">
-    <b>📌 Por que essa ordem (Plano D)</b>
-    Disney na <b>segunda</b> = dia de semana, com filas bem menores do que no fim de semana. O <b>Louvre</b> vai para o sábado (chegar na abertura compensa o movimento maior) para a irmã e a sobrinha participarem antes do dia do parque. <b>Versalhes</b> permanece na terça (único dia útil disponível, já que fecha às segundas).
+    <b>📌 Como ficou o Plano D</b>
+    <b>Sex 25 PM</b>: chegada + Mont + Sena · <b>Sáb 26</b>: Paris clássico (Île + Notre-Dame + Champs + Arco + Eiffel) · <b>Dom 27</b>: dia livre · <b>Seg 28</b>: Disney (segunda = menos fila) · <b>Ter 29</b>: Louvre (manhã) + Versalhes (tarde, único dia útil). O dia da terça é <b>bem corrido</b> — fica a observação caso queira reorganizar.
   </div>
 
   <div class="callout warn only-b" style="background:var(--accent-soft);border-color:#bcd0f5">
@@ -437,11 +482,13 @@
       <tbody>
         <tr class="hide-d"><td>Disneyland Paris (2 dias)</td><td>Ingresso com data marcada</td><td>26–27/09</td><td>Irmã + sobrinha</td><td><button class="tk" data-id="t12" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr class="only-d"><td>Disneyland Paris (1 dia)</td><td>Ingresso com data marcada + <b>Park Hopper</b> (2 parques)</td><td>28/09</td><td>Irmã + sobrinha (+ quem for)</td><td><button class="tk" data-id="t12d" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-d"><td>Arco do Triunfo (subir ao topo)</td><td>Ingresso com horário marcado</td><td>27/09</td><td>Todos (7)</td><td><button class="tk" data-id="t17" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr><td>Museu do Louvre</td><td>Horário marcado</td><td>28/09 (A/B/C) · 26/09 (D)</td><td>Todos (7)</td><td><button class="tk" data-id="t13" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-d"><td>Arco do Triunfo (subir ao topo)</td><td>Ingresso com horário marcado</td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t17" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-d"><td>Torre Eiffel (subir ao topo)</td><td>Ingresso com horário marcado · esgota</td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t20" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr class="only-d"><td>Cruzeiro pelo Sena</td><td>Bateaux Mouches / Pont-Neuf / Bateaux Parisiens</td><td>25/09</td><td>Todos (7)</td><td><button class="tk" data-id="t21" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Museu do Louvre</td><td>Horário marcado · D: <b>09:00</b> (1ª janela)</td><td>28/09 (A/B/C) · 29/09 (D)</td><td>Todos (7)</td><td><button class="tk" data-id="t13" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr><td>Sainte-Chapelle</td><td>Ingresso recomendado</td><td>28/09 (A/B/C) · 26/09 (D)</td><td>Todos (7)</td><td><button class="tk" data-id="t18" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
         <tr><td>Notre-Dame de Paris (interior)</td><td>Entrada gratuita, mas <b>requer reserva online</b></td><td>28/09 (A/B/C) · 26/09 (D)</td><td>Todos (7)</td><td><button class="tk" data-id="t19" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
-        <tr><td>Palácio de Versalhes</td><td>Só no Plano A · horário marcado</td><td>29/09</td><td>Todos (7)</td><td><button class="tk" data-id="t14" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Palácio de Versalhes</td><td>Horário marcado · D: <b>14:00</b> (afternoon slot)</td><td>29/09 (A, C e D — não vale para B)</td><td>Todos (7)</td><td><button class="tk" data-id="t14" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr><td>Reichstag (cúpula)</td><td>Gratuito, mas exige reserva</td><td>07–08/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t15" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
         <tr><td>Castelo de Neuschwanstein</td><td>Tour guiado com horário marcado</td><td>04/10</td><td>Todos (7)</td><td><button class="tk" data-id="t16" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
       </tbody>
@@ -505,7 +552,7 @@
       if(!cl) continue;
       if(p === 'a' && (cl.contains('only-b') || cl.contains('only-c') || cl.contains('only-d'))) return true;
       if(p === 'b' && (cl.contains('only-a') || cl.contains('only-c') || cl.contains('only-d'))) return true;
-      if(p === 'c' && (cl.contains('only-a') || cl.contains('only-b') || cl.contains('only-d') || cl.contains('hide-c'))) return true;
+      if(p === 'c' && (cl.contains('only-b') || cl.contains('only-d') || cl.contains('hide-c'))) return true;
       if(p === 'd' && (cl.contains('only-b') || cl.contains('only-c') || cl.contains('hide-d'))) return true;
     }
     return false;

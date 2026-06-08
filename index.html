@@ -69,6 +69,13 @@
   body.plan-d .only-b,body.plan-d .only-c{display:none}
   body.plan-d .only-d{display:revert}
   body.plan-d .hide-d{display:none}
+  body.plan-b .hide-b{display:none}
+  /* orçamento de hospedagem */
+  .budget-input{width:100px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:.85rem;text-align:right;background:#fff}
+  .budget-input:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  .budget-total{font-weight:700;color:var(--ink);white-space:nowrap}
+  .budget-summary{background:linear-gradient(135deg,var(--accent-soft),#dde8fb);border-radius:14px;padding:18px 22px;margin-top:20px;font-size:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+  .budget-summary .grand{font-size:1.35rem;font-weight:800;color:var(--accent)}
   /* abas */
   .tabs{display:flex;gap:8px;margin:22px 0 4px;flex-wrap:wrap}
   .tabs button{border:1px solid var(--accent);background:#fff;color:var(--accent);font:inherit;font-weight:700;font-size:.92rem;padding:10px 20px;border-radius:999px;cursor:pointer;transition:.15s}
@@ -97,6 +104,7 @@
   <div class="tabs">
     <button id="tab-btn-roteiro" class="active" onclick="showTab('roteiro')">📋 Roteiro</button>
     <button id="tab-btn-passagens" onclick="showTab('passagens')">🎫 Passagens</button>
+    <button id="tab-btn-hospedagem" onclick="showTab('hospedagem')">🏨 Hospedagem</button>
   </div>
 
   <div id="tab-roteiro">
@@ -158,8 +166,10 @@
       <tr class="only-b"><td class="date">Ter 29/09</td><td class="city">Zurique</td><td>🚄 TGV Lyria Paris G. de Lyon <b>07:22</b> → Zurique <b>~11:26</b> (sem Versalhes)</td><td>🛏️</td></tr>
       <tr class="only-b"><td class="date">Qua 30/09</td><td class="city">Lucerna</td><td>🚆 Trem Zurique <b>~07:05</b> → Lucerna <b>~07:50</b> (45 min)</td><td>🛏️</td></tr>
       <tr class="only-b"><td class="date">Qui 01/10</td><td class="city">Lucerna</td><td>🏔️ Dia inteiro em Lucerna (<b>dia extra</b> — Pilatus / Rigi / cruzeiro no lago)</td><td>🛏️</td></tr>
-      <tr><td class="date">Sex 02/10</td><td class="city">Munique</td><td>🚆 Trem Lucerna <b>~06:34</b> → Munique <b>~11:05</b> (~4h30, baldeação em Zurique) · tarde livre</td><td>🛏️</td></tr>
-      <tr><td class="date">Sáb 03/10</td><td>Munique</td><td>🍺 <b>Oktoberfest</b> (último fim de semana!) + centro de Munique</td><td>🛏️</td></tr>
+      <tr class="hide-d"><td class="date">Sex 02/10</td><td class="city">Munique</td><td>🚆 Trem Lucerna <b>~06:34</b> → Munique <b>~11:05</b> (~4h30, baldeação em Zurique) · tarde livre</td><td>🛏️</td></tr>
+      <tr class="hide-d"><td class="date">Sáb 03/10</td><td>Munique</td><td>🍺 <b>Oktoberfest</b> (último fim de semana!) + centro de Munique</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Sex 02/10</td><td class="city">Lucerna</td><td>🏔️ <b>3ª noite em Lucerna</b> — passeio no lago / Pilatus / Rigi</td><td>🛏️</td></tr>
+      <tr class="only-d"><td class="date">Sáb 03/10</td><td class="city">Munique</td><td>🚆 Trem Lucerna <b>~06:34</b> → Munique <b>~11:05</b> · 🍺 <b>Oktoberfest</b> à tarde (penúltimo dia)</td><td>🛏️</td></tr>
       <tr><td class="date">Dom 04/10</td><td>Munique</td><td>🏰 Bate-volta ao <b>Castelo de Neuschwanstein</b> (dia inteiro)</td><td>🛏️</td></tr>
       <!-- Planos A/B: Munique → Praga → Berlim -->
       <tr class="split-row hide-c"><td class="date">Dom 05/10</td><td>SEPARAÇÃO</td><td>Grupo A: ✈️ <b>TP551 Munique 06:05 → Lisboa 08:20</b> → Brasil &nbsp;·&nbsp; Grupo B: 🚆 trem alex Munique <b>~06:53</b> → Praga <b>~12:30</b> (~5h38, direto)</td><td>A volta<br>B 🛏️ Praga</td></tr>
@@ -178,7 +188,7 @@
   <div class="nights only-a"><b>Noites (Plano A):</b> Lisboa 2 · Paris 5 · Zurique 1 · Lucerna 1 · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
   <div class="nights only-b"><b>Noites (Plano B):</b> Lisboa 2 · Paris 4 · Zurique 1 · <b>Lucerna 2</b> · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
   <div class="nights only-c"><b>Noites (Plano C):</b> Lisboa 2 · Paris 5 · Zurique 1 · Lucerna 1 · Munique 3 &nbsp;|&nbsp; Grupo B: <b>Berlim 2 · Praga 2</b></div>
-  <div class="nights only-d"><b>Noites (Plano D):</b> Lisboa 2 · Paris 5 · <b>Lucerna 2</b> (sem Zurique) · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
+  <div class="nights only-d"><b>Noites (Plano D):</b> Lisboa 2 · Paris 5 · <b>Lucerna 3</b> (sem Zurique) · <b>Munique 2</b> &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
 
   <h2 class="section">🗼 Passeios em Paris<span class="only-a"> (25–29/09)</span><span class="only-b"> (25–28/09)</span></h2>
   <p style="font-size:.9rem;color:var(--muted);margin-top:-4px">A irmã e a sobrinha fazem <b>2 dias de Disney</b> no fim de semana; quem quiser pode acompanhar. <span class="only-a">O <b>grupo todo</b> faz Paris cidade na segunda e <b>Versalhes</b> na terça.</span><span class="only-b">O <b>grupo todo</b> faz Paris cidade na segunda e segue para a Suíça na terça (sem Versalhes).</span></p>
@@ -328,7 +338,7 @@
 
   <div class="callout warn only-d" style="background:var(--accent-soft);border-color:#bcd0f5">
     <b>📌 Como ficou o Plano D</b>
-    <b>Sex 25 PM</b>: chegada + Mont + Sena · <b>Sáb 26</b>: Paris clássico · <b>Dom 27</b>: dia livre · <b>Seg 28</b>: Disney · <b>Ter 29</b>: Louvre (manhã) + Versalhes (tarde) · <b>Qua 30</b>: direto para Lucerna (sem pernoite em Zurique) · <b>Qui 01/10</b>: Lucerna dia inteiro · <b>Sex 02/10</b>: Munique. Suíça com <b>2 noites em Lucerna</b>. Terça é dia bem corrido — fica a observação caso queira reorganizar.
+    <b>Sex 25 PM</b>: chegada + Mont + Sena · <b>Sáb 26</b>: Paris clássico · <b>Dom 27</b>: dia livre · <b>Seg 28</b>: Disney · <b>Ter 29</b>: Louvre (manhã) + Versalhes (tarde) · <b>Qua 30 a Sex 02/10</b>: Lucerna (<b>3 noites</b>, sem pernoite em Zurique) · <b>Sáb 03/10</b>: Munique + Oktoberfest à tarde · <b>Dom 04/10</b>: Munique (Neuschwanstein ou último dia da Oktoberfest). Munique fica com <b>2 noites</b>. Terça em Paris é dia bem corrido — fica a observação caso queira reorganizar.
   </div>
 
   <div class="callout warn only-b" style="background:var(--accent-soft);border-color:#bcd0f5">
@@ -336,19 +346,33 @@
     Abrindo mão de Versalhes, Paris fica com 4 noites (chegada + Disney no fim de semana + Paris clássica na segunda) e a Suíça ganha um dia a mais, dedicado a <b>Lucerna</b> — ótimo para subir o <b>Pilatus</b> ou o <b>Rigi</b> e fazer um cruzeiro pelo Lago dos Quatro Cantões sem pressa.
   </div>
 
-  <h2 class="section">🍺 Passeios em Munique (02–04/10)</h2>
+  <h2 class="section">🍺 Passeios em Munique<span class="hide-d"> (02–04/10)</span><span class="only-d"> (03–04/10, plano D)</span></h2>
   <p style="font-size:.9rem;color:var(--muted);margin-top:-4px">Os 7 ficam juntos em Munique. A separação dos grupos é só no dia 05/10.</p>
 
-  <div class="leg" style="border-left-color:#c8862a">
+  <div class="leg hide-d" style="border-left-color:#c8862a">
     <h4><span class="icon">🛬</span>Sex 02/10 · Chegada + tarde livre</h4>
     <div class="meta">Chegada de trem ~11:05 · check-in no hotel</div>
     <div class="best">Tarde tranquila pelo centro: <b>Marienplatz</b> e o Glockenspiel da prefeitura, o mercado <b>Viktualienmarkt</b> e uma primeira cerveja numa <i>Biergarten</i>.</div>
   </div>
 
-  <div class="leg" style="border-left-color:#c8862a">
+  <div class="leg hide-d" style="border-left-color:#c8862a">
     <h4><span class="icon">🍺</span>Sáb 03/10 · Oktoberfest + centro de Munique</h4>
     <div class="meta">Theresienwiese · último fim de semana da Oktoberfest 2026 (encerra 04/10)</div>
     <div class="best">Dia na <b>Oktoberfest</b>: barracas (<i>Festzelte</i>), música e o parque de diversões (ótimo para a criança de dia). <b>Dicas:</b> chegue cedo, sobretudo num sábado lotado; mesas dentro das tendas são por <b>reserva</b> ou chegando bem cedo. Entrada no recinto é gratuita. À tarde/noite, complete com o centro histórico. <b>Obs.:</b> 03/10 é o <b>Dia da Unidade Alemã</b> (feriado), então lojas fecham, mas a festa e os pontos turísticos funcionam.</div>
+  </div>
+
+  <div class="leg only-d" style="border-left-color:#c8862a">
+    <h4><span class="icon">🛬</span>Sáb 03/10 · Chegada + Oktoberfest à tarde</h4>
+    <div class="meta">Trem Lucerna 06:34 → Munique 11:05 · check-in · 03/10 é <b>Dia da Unidade Alemã</b> (feriado)</div>
+    <div class="best">
+      <b>Roteiro sugerido:</b><br>
+      • <b>11:05</b> chegada · transfer ao hotel<br>
+      • <b>12:30–13:30</b> check-in e almoço rápido<br>
+      • <b>14:00</b> <b>Theresienwiese</b> — Oktoberfest (penúltimo dia, lotado mas vibrante); reserve mesa numa tenda <b>com antecedência</b><br>
+      • <b>18:00–20:00</b> centro histórico: <b>Marienplatz</b>, Glockenspiel, <b>Viktualienmarkt</b><br>
+      • <b>20:30</b> jantar numa <i>Biergarten</i> tradicional<br>
+      <b>Atenção:</b> com apenas 2 noites em Munique no Plano D, vocês precisam <b>escolher</b> entre fechar com Oktoberfest no domingo <b>OU</b> fazer o bate-volta a Neuschwanstein (não cabe os dois).
+    </div>
   </div>
 
   <div class="leg" style="border-left-color:#c8862a">
@@ -499,6 +523,38 @@
     <p style="font-size:.8rem;color:var(--muted)">As datas marcadas com (A)/(B) dependem da versão escolhida na aba Roteiro. Zurique → Lucerna normalmente se compra na hora (sai a cada 30 min).</p>
   </div><!-- fim tab-passagens -->
 
+  <div id="tab-hospedagem" style="display:none">
+    <h2 class="section" style="margin-top:8px">🏨 Hospedagem — orçamento por cidade</h2>
+    <p style="font-size:.9rem;color:var(--muted);margin-top:-4px">Preencha o <b>preço por noite para o grupo inteiro</b> (somando todos os quartos). O total é calculado automaticamente e <b>se ajusta conforme o plano</b> selecionado. Valores salvos no navegador.</p>
+
+    <table>
+      <thead><tr><th>Cidade</th><th>Datas</th><th>Noites</th><th>Pessoas</th><th>€/noite (grupo)</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td><b>Lisboa</b></td><td>23–25/09</td><td>2</td><td>7</td><td><input class="budget-input" data-id="h-lis" data-nights="2" oninput="updateBudget()" placeholder="ex: 400"></td><td class="budget-total" data-for="h-lis">—</td></tr>
+        <tr class="hide-b"><td><b>Paris</b></td><td>25–30/09</td><td>5</td><td>7</td><td><input class="budget-input" data-id="h-par-acd" data-nights="5" oninput="updateBudget()" placeholder="ex: 600"></td><td class="budget-total" data-for="h-par-acd">—</td></tr>
+        <tr class="only-b"><td><b>Paris</b> <small>(plano B)</small></td><td>25–29/09</td><td>4</td><td>7</td><td><input class="budget-input" data-id="h-par-b" data-nights="4" oninput="updateBudget()" placeholder="ex: 600"></td><td class="budget-total" data-for="h-par-b">—</td></tr>
+        <tr class="hide-b hide-d"><td><b>Zurique</b></td><td>30/09–01/10</td><td>1</td><td>7</td><td><input class="budget-input" data-id="h-zur-ac" data-nights="1" oninput="updateBudget()" placeholder="ex: 700"></td><td class="budget-total" data-for="h-zur-ac">—</td></tr>
+        <tr class="only-b"><td><b>Zurique</b> <small>(plano B)</small></td><td>29–30/09</td><td>1</td><td>7</td><td><input class="budget-input" data-id="h-zur-b" data-nights="1" oninput="updateBudget()" placeholder="ex: 700"></td><td class="budget-total" data-for="h-zur-b">—</td></tr>
+        <tr class="hide-b hide-d"><td><b>Lucerna</b></td><td>01–02/10</td><td>1</td><td>7</td><td><input class="budget-input" data-id="h-luc-ac" data-nights="1" oninput="updateBudget()" placeholder="ex: 600"></td><td class="budget-total" data-for="h-luc-ac">—</td></tr>
+        <tr class="only-b"><td><b>Lucerna</b> <small>(plano B)</small></td><td>30/09–02/10</td><td>2</td><td>7</td><td><input class="budget-input" data-id="h-luc-b" data-nights="2" oninput="updateBudget()" placeholder="ex: 600"></td><td class="budget-total" data-for="h-luc-b">—</td></tr>
+        <tr class="only-d"><td><b>Lucerna</b> <small>(plano D)</small></td><td>30/09–03/10</td><td>3</td><td>7</td><td><input class="budget-input" data-id="h-luc-d" data-nights="3" oninput="updateBudget()" placeholder="ex: 600"></td><td class="budget-total" data-for="h-luc-d">—</td></tr>
+        <tr class="hide-d"><td><b>Munique</b></td><td>02–05/10</td><td>3</td><td>7</td><td><input class="budget-input" data-id="h-mun" data-nights="3" oninput="updateBudget()" placeholder="ex: 900 (Oktoberfest!)"></td><td class="budget-total" data-for="h-mun">—</td></tr>
+        <tr class="only-d"><td><b>Munique</b> <small>(plano D)</small></td><td>03–05/10</td><td>2</td><td>7</td><td><input class="budget-input" data-id="h-mun-d" data-nights="2" oninput="updateBudget()" placeholder="ex: 900 (Oktoberfest!)"></td><td class="budget-total" data-for="h-mun-d">—</td></tr>
+        <tr class="hide-c"><td><b>Praga</b> <small>(Grupo B)</small></td><td>05–07/10</td><td>2</td><td>3</td><td><input class="budget-input" data-id="h-pra-abd" data-nights="2" oninput="updateBudget()" placeholder="ex: 200"></td><td class="budget-total" data-for="h-pra-abd">—</td></tr>
+        <tr class="only-c"><td><b>Praga</b> <small>(Grupo B · plano C)</small></td><td>07–09/10</td><td>2</td><td>3</td><td><input class="budget-input" data-id="h-pra-c" data-nights="2" oninput="updateBudget()" placeholder="ex: 200"></td><td class="budget-total" data-for="h-pra-c">—</td></tr>
+        <tr class="hide-c"><td><b>Berlim</b> <small>(Grupo B)</small></td><td>07–09/10</td><td>2</td><td>3</td><td><input class="budget-input" data-id="h-ber-abd" data-nights="2" oninput="updateBudget()" placeholder="ex: 250"></td><td class="budget-total" data-for="h-ber-abd">—</td></tr>
+        <tr class="only-c"><td><b>Berlim</b> <small>(Grupo B · plano C)</small></td><td>05–07/10</td><td>2</td><td>3</td><td><input class="budget-input" data-id="h-ber-c" data-nights="2" oninput="updateBudget()" placeholder="ex: 250"></td><td class="budget-total" data-for="h-ber-c">—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="budget-summary">
+      <div>Total estimado de hospedagem para o plano selecionado:</div>
+      <div class="grand" id="budget-grand">€0</div>
+    </div>
+
+    <p style="font-size:.82rem;color:var(--muted);margin-top:14px"><b>Dicas:</b> os preços em Munique no fim de semana da Oktoberfest (02–04/10) são <b>muito altos</b> — reserve com bastante antecedência. Em Zurique e Lucerna os valores podem estar em CHF (taxa ~1:1 com EUR). Para 7 pessoas a divisão típica é 3-4 quartos (ex.: 3 duplos + 1 triplo, ou 2 duplos + 1 triplo + 1 single). Para o Grupo B (3 pessoas), 1 triplo ou 1 duplo + 1 single.</p>
+  </div><!-- fim tab-hospedagem -->
+
   <footer>
     Tempos e horários verificados em maio/2026 (TAP, TGV Lyria, SBB/DB, RegioJet, EuroCity, Oktoberfest.de).<br>
     Confirme horários exatos no momento da compra das passagens.
@@ -516,14 +572,19 @@
     document.getElementById('btn-c').classList.toggle('active', p === 'c');
     document.getElementById('btn-d').classList.toggle('active', p === 'd');
     if(typeof updateCount === 'function') updateCount();
+    if(typeof updateBudget === 'function') updateBudget();
   }
 
   function showTab(t){
-    var pass = (t === 'passagens');
-    document.getElementById('tab-roteiro').style.display = pass ? 'none' : '';
-    document.getElementById('tab-passagens').style.display = pass ? '' : 'none';
-    document.getElementById('tab-btn-roteiro').classList.toggle('active', !pass);
-    document.getElementById('tab-btn-passagens').classList.toggle('active', pass);
+    var roteiro = (t === 'roteiro');
+    var passagens = (t === 'passagens');
+    var hospedagem = (t === 'hospedagem');
+    document.getElementById('tab-roteiro').style.display = roteiro ? '' : 'none';
+    document.getElementById('tab-passagens').style.display = passagens ? '' : 'none';
+    document.getElementById('tab-hospedagem').style.display = hospedagem ? '' : 'none';
+    document.getElementById('tab-btn-roteiro').classList.toggle('active', roteiro);
+    document.getElementById('tab-btn-passagens').classList.toggle('active', passagens);
+    document.getElementById('tab-btn-hospedagem').classList.toggle('active', hospedagem);
     window.scrollTo(0, 0);
   }
 
@@ -554,7 +615,7 @@
       var cl = n.classList;
       if(!cl) continue;
       if(p === 'a' && (cl.contains('only-b') || cl.contains('only-c') || cl.contains('only-d'))) return true;
-      if(p === 'b' && (cl.contains('only-a') || cl.contains('only-c') || cl.contains('only-d'))) return true;
+      if(p === 'b' && (cl.contains('only-a') || cl.contains('only-c') || cl.contains('only-d') || cl.contains('hide-b'))) return true;
       if(p === 'c' && (cl.contains('only-b') || cl.contains('only-d') || cl.contains('hide-c'))) return true;
       if(p === 'd' && (cl.contains('only-b') || cl.contains('only-c') || cl.contains('hide-d'))) return true;
     }
@@ -571,10 +632,50 @@
     var el = document.getElementById('tk-count');
     if(el) el.textContent = done + ' de ' + visible + ' marcadas como compradas.';
   }
+  // orçamento de hospedagem
+  function updateBudget(){
+    var grand = 0;
+    document.querySelectorAll('.budget-input').forEach(function(input){
+      var id = input.dataset.id;
+      var nights = parseInt(input.dataset.nights) || 0;
+      var price = parseFloat(input.value) || 0;
+      var total = nights * price;
+      var totalEl = document.querySelector('.budget-total[data-for="' + id + '"]');
+      if(totalEl){
+        totalEl.textContent = total > 0 ? '€ ' + total.toLocaleString('pt-BR', {maximumFractionDigits: 0}) : '—';
+      }
+      if(!isHiddenByPlan(input) && total > 0){
+        grand += total;
+      }
+    });
+    var grandEl = document.getElementById('budget-grand');
+    if(grandEl) grandEl.textContent = '€ ' + grand.toLocaleString('pt-BR', {maximumFractionDigits: 0});
+  }
+  function saveBudget(){
+    try{
+      var s = {};
+      document.querySelectorAll('.budget-input').forEach(function(input){ s[input.dataset.id] = input.value; });
+      localStorage.setItem('hospedagem_prices', JSON.stringify(s));
+    }catch(e){}
+  }
+  function loadBudget(){
+    var s = {};
+    try{ s = JSON.parse(localStorage.getItem('hospedagem_prices') || '{}'); }catch(e){}
+    document.querySelectorAll('.budget-input').forEach(function(input){
+      if(s[input.dataset.id] != null) input.value = s[input.dataset.id];
+    });
+    updateBudget();
+  }
+  // adicionar autosave em todos os inputs do orçamento
+  document.querySelectorAll('.budget-input').forEach(function(input){
+    input.addEventListener('input', saveBudget);
+  });
+
   // inicialização (script no fim do body, DOM já pronto)
   document.querySelectorAll('.tk').forEach(function(b){ if(!b.dataset.pending) b.dataset.pending = b.textContent; });
   loadTickets();
   updateCount();
+  loadBudget();
 </script>
 </body>
 </html>

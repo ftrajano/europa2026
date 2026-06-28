@@ -52,24 +52,6 @@
   .callout b{display:block;margin-bottom:3px}
   footer{margin-top:30px;font-size:.78rem;color:var(--muted);text-align:center}
   a.src{color:var(--accent);text-decoration:none}
-  /* alternador de planos */
-  .plan-toggle{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:22px 0;box-shadow:0 2px 10px rgba(20,30,60,.05)}
-  .plan-toggle .label{font-weight:700;font-size:.92rem;margin-bottom:10px}
-  .plan-toggle .btns{display:flex;flex-wrap:wrap;gap:10px}
-  .plan-toggle button{border:1px solid var(--accent);background:#fff;color:var(--accent);font:inherit;font-size:.86rem;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer;transition:.15s}
-  .plan-toggle button:hover{background:var(--accent-soft)}
-  .plan-toggle button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-  .plan-toggle .desc{font-size:.86rem;color:var(--muted);margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
-  .only-b,.only-c,.only-d{display:none}
-  body.plan-b .only-a,body.plan-b .only-c,body.plan-b .only-d{display:none}
-  body.plan-b .only-b{display:revert}
-  body.plan-c .only-b,body.plan-c .only-d{display:none}
-  body.plan-c .only-c{display:revert}
-  body.plan-c .hide-c{display:none}
-  body.plan-d .only-a,body.plan-d .only-b,body.plan-d .only-c{display:none}
-  body.plan-d .only-d{display:revert}
-  body.plan-d .hide-d{display:none}
-  body.plan-b .hide-b{display:none}
   /* orçamento de hospedagem */
   #tab-hospedagem td:nth-child(2){white-space:nowrap}
   .budget-input{width:110px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:.85rem;text-align:right;background:#fff}
@@ -102,7 +84,7 @@
   .tk-sub{font-size:1rem;margin:20px 0 8px;color:var(--ink)}
 </style>
 </head>
-<body class="plan-d">
+<body>
 <div class="wrap">
 
   <header class="hero">
@@ -132,24 +114,10 @@
     <div class="gcard b">
       <span class="tag">GRUPO B</span>
       <h3>3 adultos</h3>
-      <p><span class="hide-c">Seguem Munique → Praga → Berlim e voltam dia <b>09/10</b> (voo Berlim → Lisboa → Brasil).</span><span class="only-c">Seguem Munique → Berlim → Praga e voltam dia <b>09/10</b> (voo Praga → Lisboa → Brasil).</span></p>
+      <p>Seguem Munique → Praga → Berlim e voltam dia <b>09/10</b> (voo Berlim → Lisboa → Brasil).</p>
     </div>
   </div>
   <p style="font-size:.9rem;color:var(--muted);margin-top:-6px">Os dois grupos ficam juntos de <b>23/09 até 05/10</b>. A separação acontece em Munique no dia 05/10.</p>
-
-  <div class="plan-toggle">
-    <div class="label">🔁 Versão do roteiro</div>
-    <div class="btns">
-      <button id="btn-b" onclick="setPlan('b')">Plano B · +1 dia em Lucerna</button>
-      <button id="btn-c" onclick="setPlan('c')">Plano C · volta de Praga</button>
-      <button id="btn-d" class="active" onclick="setPlan('d')">Plano D · Disney em 1 dia</button>
-    </div>
-    <div class="desc">
-      <span class="only-b"><b>Plano B:</b> sem Versalhes; seguimos direto para Zurique já no dia 29/09. A Suíça ganha 1 noite extra, usada em <b>Lucerna (2 noites)</b>. Paris fica com 4 noites. Grupo B: Munique → Praga → Berlim, volta de Berlim.</span>
-      <span class="only-c"><b>Plano C:</b> Versalhes na terça, Suíça com 2 noites (Zurique + Lucerna). Mudança no final: o Grupo B segue <b>Munique → Berlim → Praga</b> e volta para Lisboa <b>de Praga</b> no dia 09/10 (voo direto TAP).</span>
-      <span class="only-d"><b>Plano D:</b> Disney em <b>1 dia</b> (segunda), Mont + Sena na chegada, Paris clássico no sábado, Louvre + Versalhes no domingo. Saída para Lucerna na terça 29/09 — <b>4 noites em Lucerna</b>. Munique com 2 noites.</span>
-    </div>
-  </div>
 
   <h2 class="section">📅 Roteiro dia a dia</h2>
   <table>
@@ -159,55 +127,28 @@
     <tbody>
       <tr><td class="date">Qua 23/09</td><td class="city">Lisboa</td><td>✈️ <b>GOL G3 1885</b> Recife <b>02:15</b> → Lisboa <b>21:40</b> · 🏨 Apto Ricardo, <b>Rua da Rosa 106</b> (Bairro Alto)</td><td>🛏️</td></tr>
       <tr><td class="date">Qui 24/09</td><td>Lisboa</td><td>Dia inteiro na cidade</td><td>🛏️</td></tr>
-      <tr class="hide-d"><td class="date">Sex 25/09</td><td class="city">Paris</td><td>✈️ Voo Lisboa <b>10:15</b> → Paris Orly <b>13:40</b> (TP432) · tarde livre em Paris</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Sex 25/09</td><td class="city">Paris</td><td>✈️ Voo Lisboa <b>10:15</b> → Paris Orly <b>13:40</b> (TP432) · <b>Montmartre + cruzeiro no Sena</b> à tarde/noite</td><td>🛏️</td></tr>
-      <tr class="hide-d"><td class="date">Sáb 26/09</td><td>Paris</td><td>🎢 <b>Disney Dia 1</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
-      <tr class="hide-d"><td class="date">Dom 27/09</td><td>Paris</td><td>🎢 <b>Disney Dia 2</b> (irmã + sobrinha) · demais: Paris livre</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Sáb 26/09</td><td>Paris</td><td>🗼 <b>Paris clássico</b> — Île de la Cité + Notre-Dame + Champs-Élysées + Arco do Triunfo + Torre Eiffel</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Dom 27/09</td><td>Paris</td><td>🏛️👑 <b>Louvre (manhã) + Versalhes (tarde)</b> — dia corrido</td><td>🛏️</td></tr>
-      <tr class="hide-d"><td class="date">Seg 28/09</td><td>Paris</td><td>🏛️ Paris cidade — Louvre, Île de la Cité, Notre-Dame (grupo todo)</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Seg 28/09</td><td>Paris</td><td>🎢 <b>Disney em 1 dia (2 parques)</b> — irmã + sobrinha (+ quem quiser) · segunda = menos fila</td><td>🛏️</td></tr>
-      <!-- Plano A -->
-      <tr class="only-a hide-d"><td class="date">Ter 29/09</td><td>Paris</td><td>👑 <b>Versalhes</b> — dia inteiro (grupo todo)</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Ter 29/09</td><td class="city">Lucerna</td><td>🚄 <b>TGV Lyria 9203</b> Paris G. Lyon <b>07:22</b> → Basel <b>10:26</b> + 🚆 <b>IC 671</b> Basel <b>11:04</b> → <b>Luzern 12:05</b> · tarde livre</td><td>🛏️</td></tr>
-      <tr class="only-a hide-d"><td class="date">Qua 30/09</td><td class="city">Zurique</td><td>🚄 TGV Lyria Paris G. de Lyon <b>07:22</b> → Zurique <b>~11:26</b> (~4h04)</td><td>🛏️</td></tr>
-      <tr class="only-a hide-d"><td class="date">Qui 01/10</td><td class="city">Lucerna</td><td>🚆 Trem Zurique <b>~07:05</b> → Lucerna <b>~07:50</b> (45 min)</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Qua 30/09</td><td class="city">Lucerna</td><td>🏔️ Lucerna dia inteiro (Pilatus, Rigi, cruzeiro pelo lago)</td><td>🛏️</td></tr>
-      <tr class="only-d"><td class="date">Qui 01/10</td><td class="city">Lucerna</td><td>🏔️ Dia inteiro em Lucerna (Monte Pilatus, Monte Rigi ou cruzeiro pelo Lago dos Quatro Cantões)</td><td>🛏️</td></tr>
-      <!-- Plano B -->
-      <tr class="only-b"><td class="date">Ter 29/09</td><td class="city">Zurique</td><td>🚄 TGV Lyria Paris G. de Lyon <b>07:22</b> → Zurique <b>~11:26</b> (sem Versalhes)</td><td>🛏️</td></tr>
-      <tr class="only-b"><td class="date">Qua 30/09</td><td class="city">Lucerna</td><td>🚆 Trem Zurique <b>~07:05</b> → Lucerna <b>~07:50</b> (45 min)</td><td>🛏️</td></tr>
-      <tr class="only-b"><td class="date">Qui 01/10</td><td class="city">Lucerna</td><td>🏔️ Dia inteiro em Lucerna (<b>dia extra</b> — Pilatus / Rigi / cruzeiro no lago)</td><td>🛏️</td></tr>
-      <tr><td class="date">Sex 02/10</td><td class="city">Munique</td><td>🚆 Trem Lucerna <b>~06:34</b> → Munique <b>~11:05</b> (~4h30, baldeação em Zurique) · tarde livre</td><td>🛏️</td></tr>
+      <tr><td class="date">Sex 25/09</td><td class="city">Paris</td><td>✈️ Voo Lisboa <b>10:15</b> → Paris Orly <b>13:40</b> (TP432) · <b>Montmartre + cruzeiro no Sena</b> à tarde/noite</td><td>🛏️</td></tr>
+      <tr><td class="date">Sáb 26/09</td><td>Paris</td><td>🗼 <b>Paris clássico</b> — Île de la Cité + Notre-Dame + Champs-Élysées + Arco do Triunfo + Torre Eiffel</td><td>🛏️</td></tr>
+      <tr><td class="date">Dom 27/09</td><td>Paris</td><td>🏛️👑 <b>Louvre (manhã) + Versalhes (tarde)</b> — dia corrido</td><td>🛏️</td></tr>
+      <tr><td class="date">Seg 28/09</td><td>Paris</td><td>🎢 <b>Disney em 1 dia (2 parques)</b> — irmã + sobrinha (+ quem quiser) · segunda = menos fila</td><td>🛏️</td></tr>
+      <tr><td class="date">Ter 29/09</td><td class="city">Lucerna</td><td>🚄 <b>TGV Lyria 9203</b> Paris G. Lyon <b>07:22</b> → Basel <b>10:26</b> + 🚆 <b>IC 671</b> Basel <b>11:04</b> → <b>Luzern 12:05</b> · tarde livre</td><td>🛏️</td></tr>
+      <tr><td class="date">Qua 30/09</td><td class="city">Lucerna</td><td>🏔️ Dia inteiro em Lucerna (Monte Pilatus / Rigi / cruzeiro pelo Lago dos Quatro Cantões)</td><td>🛏️</td></tr>
+      <tr><td class="date">Qui 01/10</td><td class="city">Lucerna</td><td>🏔️ Dia inteiro em Lucerna</td><td>🛏️</td></tr>
+      <tr><td class="date">Sex 02/10</td><td class="city">Munique</td><td>🚆 Trem Lucerna <b>~06:34</b> → Munique <b>~11:05</b> · 🏨 <b>gambino hotel WERKSVIERTEL</b> (Berg am Laim) · tarde livre</td><td>🛏️</td></tr>
       <tr><td class="date">Sáb 03/10</td><td>Munique</td><td>🍺 <b>Oktoberfest</b> (último fim de semana!) + centro de Munique</td><td>🛏️</td></tr>
       <tr><td class="date">Dom 04/10</td><td>Munique</td><td>🏰 Bate-volta ao <b>Castelo de Neuschwanstein</b> (dia inteiro)</td><td>🛏️</td></tr>
-      <!-- Planos A/B: Munique → Praga → Berlim -->
-      <tr class="split-row hide-c"><td class="date">Dom 05/10</td><td>SEPARAÇÃO</td><td>Grupo A: ✈️ <b>TP551 Munique 06:05 → Lisboa 08:20</b> → Brasil &nbsp;·&nbsp; Grupo B: 🚆 trem alex Munique <b>~06:53</b> → Praga <b>~12:30</b> (~5h38, direto)</td><td>A volta<br>B 🛏️ Praga</td></tr>
-      <tr class="hide-c"><td class="date">Seg 06/10</td><td class="city">Praga <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
-      <tr class="hide-c"><td class="date">Ter 07/10</td><td class="city">Berlim <small>(B)</small></td><td>🚄 EC Praga <b>06:30</b> → Berlim <b>~10:45</b> (~4h15)</td><td>🛏️</td></tr>
-      <tr class="hide-c"><td class="date">Qua 08/10</td><td>Berlim <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
-      <tr class="hide-c"><td class="date">Qui 09/10</td><td>volta <small>(B)</small></td><td>✈️ Berlim → Lisboa → Brasil (TAP direto ~3h45)</td><td>—</td></tr>
-      <!-- Plano C: Munique → Berlim → Praga -->
-      <tr class="split-row only-c"><td class="date">Dom 05/10</td><td>SEPARAÇÃO</td><td>Grupo A: ✈️ <b>TP551 Munique 06:05 → Lisboa 08:20</b> → Brasil &nbsp;·&nbsp; Grupo B: 🚄 ICE Sprinter Munique <b>~06:00</b> → Berlim <b>~09:55</b> (~3h55, direto)</td><td>A volta<br>B 🛏️ Berlim</td></tr>
-      <tr class="only-c"><td class="date">Seg 06/10</td><td class="city">Berlim <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
-      <tr class="only-c"><td class="date">Ter 07/10</td><td class="city">Praga <small>(B)</small></td><td>🚄 EC Berlim <b>~06:36</b> → Praga <b>~11:00</b> (~4h20)</td><td>🛏️</td></tr>
-      <tr class="only-c"><td class="date">Qua 08/10</td><td>Praga <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
-      <tr class="only-c"><td class="date">Qui 09/10</td><td>volta <small>(B)</small></td><td>✈️ Praga → Lisboa → Brasil (TAP direto ~3h50)</td><td>—</td></tr>
+      <tr class="split-row"><td class="date">Dom 05/10</td><td>SEPARAÇÃO</td><td>Grupo A: ✈️ <b>TP551 Munique 06:05 → Lisboa 08:20</b> → Brasil &nbsp;·&nbsp; Grupo B: 🚆 trem alex Munique <b>~06:53</b> → Praga <b>~12:30</b> (~5h38, direto)</td><td>A volta<br>B 🛏️ Praga</td></tr>
+      <tr><td class="date">Seg 06/10</td><td class="city">Praga <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
+      <tr><td class="date">Ter 07/10</td><td class="city">Berlim <small>(B)</small></td><td>🚄 EC Praga <b>06:30</b> → Berlim <b>~10:45</b> (~4h15)</td><td>🛏️</td></tr>
+      <tr><td class="date">Qua 08/10</td><td>Berlim <small>(B)</small></td><td>Dia inteiro</td><td>🛏️</td></tr>
+      <tr><td class="date">Qui 09/10</td><td>volta <small>(B)</small></td><td>✈️ Berlim → Lisboa → Brasil (TAP direto ~3h45)</td><td>—</td></tr>
     </tbody>
   </table>
-  <div class="nights only-b"><b>Noites (Plano B):</b> Lisboa 2 · Paris 4 · Zurique 1 · <b>Lucerna 2</b> · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
-  <div class="nights only-c"><b>Noites (Plano C):</b> Lisboa 2 · Paris 5 · Zurique 1 · Lucerna 1 · Munique 3 &nbsp;|&nbsp; Grupo B: <b>Berlim 2 · Praga 2</b></div>
-  <div class="nights only-d"><b>Noites (Plano D):</b> Lisboa 2 · <b>Paris 4</b> · <b>Lucerna 3</b> (sem Zurique) · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
+  <div class="nights"><b>Noites:</b> Lisboa 2 · Paris 4 · Lucerna 3 · Munique 3 &nbsp;|&nbsp; Grupo B: Praga 2 · Berlim 2</div>
 
-  <h2 class="section">🗼 Passeios em Paris<span class="only-c"> (25–30/09)</span><span class="only-b"> (25–29/09)</span><span class="only-d"> (25–29/09)</span></h2>
+  <h2 class="section">🗼 Passeios em Paris (25–29/09)</h2>
 
-  <div class="leg hide-d" style="border-left-color:#d23c8e">
-    <h4><span class="icon">🛬</span>Sex 25/09 · Chegada + tarde livre</h4>
-    <div class="meta">Chegada a Paris Orly ~13:40 · check-in no hotel</div>
-    <div class="best">Programa leve para descansar da viagem: <b>Torre Eiffel</b> e Champ de Mars, passeio pelo <b>Trocadéro</b> e um primeiro contato com o Sena. À noite, jantar tranquilo perto do hotel.</div>
-  </div>
-
-  <div class="leg only-d" style="border-left-color:#d23c8e">
+  <div class="leg" style="border-left-color:#d23c8e">
     <h4><span class="icon">🎨</span>Sex 25/09 · Chegada + Montmartre + Cruzeiro no Sena (grupo todo)</h4>
     <div class="meta">Chegada a Paris Orly ~13:40 · check-in ~15:00 · programa de tarde/noite</div>
     <div class="best">
@@ -224,7 +165,7 @@
     </div>
   </div>
 
-  <div class="leg only-d" style="border-left-color:#d23c8e">
+  <div class="leg" style="border-left-color:#d23c8e">
     <h4><span class="icon">🗼</span>Sáb 26/09 · Paris clássico (grupo todo)</h4>
     <div class="meta">Dia inteiro · Île de la Cité + Notre-Dame + Champs-Élysées + Arco do Triunfo + Torre Eiffel · muita caminhada — calce sapato confortável</div>
     <div class="best">
@@ -243,13 +184,7 @@
     </div>
   </div>
 
-  <div class="leg hide-d" style="border-left-color:#d23c8e">
-    <h4><span class="icon">🎢</span>Sáb 26 + Dom 27/09 · Disneyland Paris (irmã + sobrinha)</h4>
-    <div class="meta">2 dias · RER A de Paris até <b>Marne-la-Vallée–Chessy</b>, na porta dos parques (~40 min)</div>
-    <div class="best">Os 2 dias permitem fazer com calma os <b>dois parques</b>: o <b>Disneyland Park</b> (castelo, clássicos) num dia e o <b>Walt Disney Studios</b> no outro. <b>Dicas:</b> comprar ingresso com data marcada antecipadamente, baixar o app da Disneyland Paris para ver filas, e chegar na abertura. <b>Demais do grupo</b> nesses 2 dias: Montmartre e Sacré-Cœur, Marais, Museu d'Orsay, cruzeiro pelo Sena, Arco do Triunfo / Champs-Élysées.</div>
-  </div>
-
-  <div class="leg only-d" style="border-left-color:#d23c8e">
+  <div class="leg" style="border-left-color:#d23c8e">
     <h4><span class="icon">🎢</span>Seg 28/09 · Disneyland Paris em 1 dia (2 parques)</h4>
     <div class="meta">RER A de Paris até <b>Marne-la-Vallée–Chessy</b> (~40 min) · ingresso <b>Park Hopper</b> obrigatório (passe entre os dois parques) · <b>segunda = bem menos fila</b> do que no fim de semana</div>
     <div class="best">
@@ -265,21 +200,7 @@
     </div>
   </div>
 
-  <div class="leg hide-d" style="border-left-color:#d23c8e">
-    <h4><span class="icon">🏛️</span>Seg 28/09 · Paris clássica (grupo todo)</h4>
-    <div class="meta">Segunda — Museu d'Orsay fecha às segundas; <b>Louvre abre</b></div>
-    <div class="best">
-      <b>Roteiro sugerido:</b><br>
-      • <b>09:00</b> abertura do <b>Louvre</b> (Mona Lisa, Vênus de Milo, Vitória de Samotrácia, Coroação de Napoleão) — ingresso com <b>horário marcado</b>, prever ~3h dentro<br>
-      • <b>12:30</b> almoço pelo entorno do Louvre / Tuileries<br>
-      • <b>14:00</b> <b>Sainte-Chapelle</b> (vitrais do séc. XIII — ingresso recomendado online)<br>
-      • <b>15:30</b> exterior da <b>Notre-Dame</b> — reaberta após o incêndio em dez/2024 (interior tem entrada gratuita, mas <b>requer reserva online</b>)<br>
-      • <b>17:00</b> <b>Quartier Latin</b> + <b>Jardim de Luxemburgo</b> para descansar e fechar a tarde<br>
-      • <b>19:30</b> jantar pelo bairro (St-Germain-des-Prés)
-    </div>
-  </div>
-
-  <div class="leg only-d" style="border-left-color:#d23c8e">
+  <div class="leg" style="border-left-color:#d23c8e">
     <h4><span class="icon">🏛️👑</span>Dom 27/09 · Louvre (manhã) + Versalhes (tarde) — grupo todo</h4>
     <div class="meta">Dia <b>corrido</b> — combina dois pesos-pesados num só dia · ingresso com horário marcado nos dois · <b>domingo lota mais</b> em Versalhes — reserve com antecedência</div>
     <div class="best">
@@ -298,23 +219,7 @@
     </div>
   </div>
 
-  <div class="leg only-a hide-d" style="border-left-color:#d23c8e">
-    <h4><span class="icon">👑</span>Ter 29/09 · Palácio de Versalhes (grupo todo)</h4>
-    <div class="meta">Dia inteiro · trem <b>RER C</b> de Paris até <b>Versailles Château Rive Gauche</b> (~40 min)</div>
-    <div class="best">
-      <b>Roteiro sugerido:</b><br>
-      • <b>07:45</b> sair do hotel (chegar cedo é essencial — Versalhes lota rápido, mesmo num dia de semana)<br>
-      • <b>08:45</b> chegar à estação Versailles Château Rive Gauche (~10 min a pé até o palácio)<br>
-      • <b>09:00</b> abertura do <b>Palácio</b> com horário marcado — <b>Salão dos Espelhos</b>, Aposentos Reais, Capela Real (~2-3h)<br>
-      • <b>12:30</b> almoço — <i>La Petite Venise</i> dentro dos jardins, ou levar piquenique<br>
-      • <b>14:00</b> <b>Jardins de Le Nôtre</b> + <b>Grande Trianon</b> + <b>Petit Trianon</b> + <b>Hameau de la Reine</b> (vilarejo rústico de Maria Antonieta) — alugue bicicletas ou pegue o trenzinho elétrico (são grandes distâncias)<br>
-      • <b>17:30</b> RER de volta a Paris<br>
-      • <b>19:30</b> jantar tranquilo (vai ser um dia cansativo)<br>
-      <b>Importante:</b> Versalhes <b>fecha às segundas</b> — por isso ficou na terça (dia de semana = menos fila). <b>Compre o ingresso "Passport" com horário marcado online</b> com bastante antecedência (inclui palácio + Trianons + jardins).
-    </div>
-  </div>
-
-  <div class="leg only-d" style="border-left-color:#2c6e2c">
+  <div class="leg" style="border-left-color:#2c6e2c">
     <h4><span class="icon">🚄</span>Ter 29/09 · Paris → Luzern via Basel · <b style="color:#2c6e2c">RESERVA CONFIRMADA ✅</b></h4>
     <div class="meta">SBB · Pedido <b>nº 151481427542</b> · Localizador TGV Lyria <b style="font-family:monospace;letter-spacing:.5px">KNEZBL</b> · Total <b>CHF 600,20</b></div>
     <div class="best">
@@ -347,25 +252,9 @@
     </div>
   </div>
 
-  <div class="leg only-b" style="border-left-color:#d23c8e">
-    <h4><span class="icon">🚄</span>Ter 29/09 · Rumo à Suíça (sem Versalhes)</h4>
-    <div class="meta">Saída de manhã de Paris para Zurique (ver Trecho 2)</div>
-    <div class="best">Neste plano, em vez de Versalhes, o grupo pega o TGV cedo para Zurique e ganha <b>uma noite extra na Suíça</b>, usada em <b>Lucerna</b>. Como o trem sai de manhã, faça as malas na noite anterior.</div>
-  </div>
-
-  <div class="callout warn only-a hide-d" style="background:var(--accent-soft);border-color:#bcd0f5">
-    <b>📌 Por que essa ordem</b>
-    Disney no fim de semana e Versalhes na terça aproveita o melhor de cada um: Versalhes fica muito mais tranquilo num dia de semana, e a Disney lida bem com o movimento do fim de semana. Segunda foi reservada para o Louvre (que abre nesse dia, ao contrário do d'Orsay).
-  </div>
-
-  <div class="callout warn only-d" style="background:var(--accent-soft);border-color:#bcd0f5">
-    <b>📌 Como ficou o Plano D</b>
+  <div class="callout warn" style="background:var(--accent-soft);border-color:#bcd0f5">
+    <b>📌 Resumo do roteiro</b>
     <b>Sex 25 PM</b>: chegada + Montmartre + cruzeiro no Sena · <b>Sáb 26</b>: Paris clássico (Île + Notre-Dame + Champs + Arco + Eiffel) · <b>Dom 27</b>: Louvre (manhã) + Versalhes (tarde) · <b>Seg 28</b>: Disney · <b>Ter 29</b>: Paris → Luzern via Basel (chega 12:05) · <b>Qua 30 + Qui 01/10</b>: Lucerna · <b>Sex 02/10</b>: Lucerna → Munique (~11:05) · <b>Sáb 03/10</b>: Oktoberfest · <b>Dom 04/10</b>: Neuschwanstein. Paris 4 noites · <b>Lucerna 3 noites</b> · Munique 3 noites. <b>Domingo é dia corrido</b> (Louvre + Versalhes) — reserve as duas janelas (09h e 14h) com antecedência.
-  </div>
-
-  <div class="callout warn only-b" style="background:var(--accent-soft);border-color:#bcd0f5">
-    <b>📌 Sobre o Plano B</b>
-    Abrindo mão de Versalhes, Paris fica com 4 noites (chegada + Disney no fim de semana + Paris clássica na segunda) e a Suíça ganha um dia a mais, dedicado a <b>Lucerna</b> — ótimo para subir o <b>Pilatus</b> ou o <b>Rigi</b> e fazer um cruzeiro pelo Lago dos Quatro Cantões sem pressa.
   </div>
 
   <h2 class="section">🍺 Passeios em Munique (02–04/10)</h2>
@@ -424,33 +313,21 @@
     <div class="best">Como Lucerna fica "abaixo" de Zurique, o trajeto passa de volta por lá. Saindo ~06:34 você chega a Munique por volta das 11h, ganhando a tarde inteira na cidade. Há saídas ainda mais cedo, se quiser.</div>
   </div>
 
-  <div class="leg hide-c">
+  <div class="leg">
     <h4><span class="icon">🚆</span>5. Munique → Praga · trem direto alex (05/10) · Grupo B</h4>
     <div class="meta"><b>Munique ~06:53 → Praga ~12:30</b> · ~5h38 · trem direto <b>alex (RE25)</b> via Regensburg e Plzeň · ~5 a 7 saídas/dia (a cada ~2h)</div>
-    <div class="best"><b>Sim, há trem direto!</b> O <b>alex</b> (Die Länderbahn) faz Munique–Praga <b>sem troca de trem</b> (a locomotiva muda em Regensburg/Schwandorf, mas você permanece no mesmo lugar). Como sua preferência é trem na ida, é a melhor opção — saindo de manhã cedo, chega a Praga por volta do meio-dia. <b>Alternativa:</b> ônibus RegioJet (~5h30, confortável e barato), caso os horários do trem não encaixem.</div>
+    <div class="best">O <b>alex</b> (Die Länderbahn) faz Munique–Praga <b>sem troca de trem</b> (a locomotiva muda em Regensburg/Schwandorf, mas você permanece no mesmo lugar). Saindo de manhã cedo, chega a Praga por volta do meio-dia. <b>Alternativa:</b> ônibus RegioJet (~5h30, confortável e barato).</div>
   </div>
 
-  <div class="leg only-c">
-    <h4><span class="icon">🚄</span>5. Munique → Berlim · ICE Sprinter (05/10) · Grupo B</h4>
-    <div class="meta"><b>Munique ~06:00 → Berlim ~09:55</b> · ~3h55 · <b>ICE Sprinter</b> direto · até 16 saídas/dia</div>
-    <div class="best">O <b>ICE Sprinter</b> é o trem de alta velocidade direto Munique–Berlim — um dos mais rápidos da Alemanha. Saindo logo cedo o Grupo B chega a Berlim antes das 10h, com o dia praticamente inteiro livre na cidade.</div>
-  </div>
-
-  <div class="leg hide-c">
+  <div class="leg">
     <h4><span class="icon">🚄</span>6. Praga → Berlim · EuroCity (07/10) · Grupo B</h4>
     <div class="meta">Trem direto EC <b>Praga 06:30 → Berlim ~10:45</b> · ~4h15 · 7 saídas/dia (de 2 em 2h)</div>
     <div class="best">O <b>primeiro EC sai ~06:30</b> e chega a Berlim antes das 11h — tarde inteira livre. Um dos trajetos mais bonitos da Europa, acompanhando o <b>vale do rio Elba</b>; sente do <b>lado esquerdo</b> (sentido Berlim) para a melhor vista.</div>
   </div>
 
-  <div class="leg only-c">
-    <h4><span class="icon">🚄</span>6. Berlim → Praga · EuroCity (07/10) · Grupo B</h4>
-    <div class="meta">Trem direto EC <b>Berlim ~06:36 → Praga ~11:00</b> · ~4h20 · 7 saídas/dia (de 2 em 2h)</div>
-    <div class="best">Mesmo trajeto cênico do plano A/B, no sentido contrário. Acompanha o <b>vale do rio Elba</b>; para a melhor vista, sente do <b>lado direito</b> (sentido Praga).</div>
-  </div>
-
   <div class="leg">
     <h4><span class="icon">✈️</span>7. Voltas para Lisboa · avião</h4>
-    <div class="meta">Grupo A (05/10): <b>TP551 Munique (T2) 06:05 → Lisboa (T1) 08:20</b>, TAP direto ~3h15 &nbsp;·&nbsp; Grupo B (09/10): <span class="hide-c">Berlim → Lisboa, TAP direto ~3h45</span><span class="only-c">Praga → Lisboa, TAP direto ~3h50 (atenção: TAP opera ~7 voos/semana; confirme se há saída em 09/10, uma quinta)</span></div>
+    <div class="meta">Grupo A (05/10): <b>TP551 Munique (T2) 06:05 → Lisboa (T1) 08:20</b>, TAP direto ~3h15 &nbsp;·&nbsp; Grupo B (09/10): Berlim → Lisboa, TAP direto ~3h45</div>
     <div class="best"><b>Grupo A:</b> chegando a Lisboa às 08:20, sobra bastante folga para conectar com o voo intercontinental ao Brasil no mesmo dia. Como o TP551 sai cedo, vale <b>dormir perto do aeroporto de Munique na noite de 04/10</b>. <b>Atenção à conexão:</b> confirme o horário do voo Lisboa → Brasil antes de fechar os trechos.</div>
   </div>
 
@@ -498,18 +375,13 @@
       <thead><tr><th>Trecho</th><th>Transporte</th><th>Data</th><th>Quem</th><th>Localizador</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td>Lisboa → Paris</td><td>✈️ TAP TP432 · 10:15 → 13:40 (Orly) · check-in até 09:15</td><td>25/09</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-lis-par" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t4" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="hide-d"><td>Paris → Zurique</td><td>🚄 TGV Lyria</td><td>30/09 (C) · 29/09 (B)</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-par-zur" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t5" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="hide-d"><td>Zurique → Lucerna</td><td>🚆 Trem regional</td><td>01/10 (C) · 30/09 (B)</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-zur-luc" placeholder="—"></td><td><button class="tk" data-id="t6" onclick="toggleTicket(this)">⬜ Compra no dia</button></td></tr>
-        <tr class="only-d"><td>Paris → Basel</td><td>🚄 TGV Lyria <b>9203</b> · 07:22 → 10:26 · Coach 15 (assentos 564–571)</td><td>29/09</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-par-bas-d" value="KNEZBL"></td><td><button class="tk done" data-id="t5d" onclick="toggleTicket(this)">✅ Comprada</button></td></tr>
-        <tr class="only-d"><td>Basel → Luzern</td><td>🚆 <b>IC 671</b> · 11:04 (Plat. 7) → 12:05 (Plat. 7)</td><td>29/09</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-bas-luc-d" value="151481427542"></td><td><button class="tk done" data-id="t6d" onclick="toggleTicket(this)">✅ Comprada</button></td></tr>
-        <tr><td>Lucerna → Munique</td><td>🚆 Trem (EC)</td><td>02/10 (B/C) · 03/10 (D)</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-luc-mun" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t7" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Paris → Basel</td><td>🚄 TGV Lyria <b>9203</b> · 07:22 → 10:26 · Coach 15 (assentos 564–571)</td><td>29/09</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-par-bas-d" value="KNEZBL"></td><td><button class="tk done" data-id="t5d" onclick="toggleTicket(this)">✅ Comprada</button></td></tr>
+        <tr><td>Basel → Luzern</td><td>🚆 <b>IC 671</b> · 11:04 (Plat. 7) → 12:05 (Plat. 7)</td><td>29/09</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-bas-luc-d" value="151481427542"></td><td><button class="tk done" data-id="t6d" onclick="toggleTicket(this)">✅ Comprada</button></td></tr>
+        <tr><td>Lucerna → Munique</td><td>🚆 Trem (EC)</td><td>02/10</td><td>Todos (7)</td><td><input class="pnr-input" data-id="pnr-luc-mun" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t7" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr><td>Munique → Lisboa</td><td>✈️ TAP TP551 · 06:05 → 08:20</td><td>05/10</td><td>Grupo A (3+1)</td><td><input class="pnr-input" data-id="pnr-mun-lis" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t8" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="hide-c"><td>Munique → Praga</td><td>🚆 Trem alex (ou ônibus)</td><td>05/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-mun-pra" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t9" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="hide-c"><td>Praga → Berlim</td><td>🚄 EuroCity</td><td>07/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-pra-ber" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t10" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="hide-c"><td>Berlim → Lisboa</td><td>✈️ TAP</td><td>09/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-ber-lis" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t11" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-c"><td>Munique → Berlim</td><td>🚄 ICE Sprinter</td><td>05/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-mun-ber-c" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t9c" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-c"><td>Berlim → Praga</td><td>🚄 EuroCity</td><td>07/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-ber-pra-c" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t10c" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-c"><td>Praga → Lisboa</td><td>✈️ TAP</td><td>09/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-pra-lis-c" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t11c" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Munique → Praga</td><td>🚆 Trem alex (ou ônibus)</td><td>05/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-mun-pra" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t9" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Praga → Berlim</td><td>🚄 EuroCity</td><td>07/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-pra-ber" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t10" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Berlim → Lisboa</td><td>✈️ TAP</td><td>09/10</td><td>Grupo B (3)</td><td><input class="pnr-input" data-id="pnr-ber-lis" placeholder="ex: ABC123"></td><td><button class="tk" data-id="t11" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
       </tbody>
     </table>
 
@@ -517,15 +389,14 @@
     <table>
       <thead><tr><th>Passeio</th><th>Obs.</th><th>Data</th><th>Quem</th><th>Status</th></tr></thead>
       <tbody>
-        <tr class="hide-d"><td>Disneyland Paris (2 dias)</td><td>Ingresso com data marcada</td><td>26–27/09</td><td>Irmã + sobrinha</td><td><button class="tk" data-id="t12" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-d"><td>Disneyland Paris (1 dia)</td><td>Ingresso com data marcada + <b>Park Hopper</b> (2 parques)</td><td>28/09</td><td>Irmã + sobrinha (+ quem for)</td><td><button class="tk" data-id="t12d" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-d"><td>Arco do Triunfo (subir ao topo)</td><td>Ingresso com horário marcado</td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t17" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-d"><td>Torre Eiffel (subir ao topo)</td><td>Ingresso com horário marcado · esgota</td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t20" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr class="only-d"><td>Cruzeiro pelo Sena</td><td>Bateaux Mouches / Pont-Neuf / Bateaux Parisiens</td><td>25/09</td><td>Todos (7)</td><td><button class="tk" data-id="t21" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr><td>Museu do Louvre</td><td>Horário marcado · D: <b>09:00</b> (1ª janela)</td><td>28/09 (B/C) · 27/09 (D)</td><td>Todos (7)</td><td><button class="tk" data-id="t13" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
-        <tr><td>Sainte-Chapelle</td><td>Ingresso recomendado</td><td>28/09 (B/C) · 26/09 (D)</td><td>Todos (7)</td><td><button class="tk" data-id="t18" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
-        <tr><td>Notre-Dame de Paris (interior)</td><td>Entrada gratuita, mas <b>requer reserva online</b></td><td>28/09 (B/C) · 26/09 (D)</td><td>Todos (7)</td><td><button class="tk" data-id="t19" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
-        <tr><td>Palácio de Versalhes</td><td>Horário marcado · D: <b>14:00</b> (afternoon slot)</td><td>29/09 (C) · 27/09 (D) — não vale para B</td><td>Todos (7)</td><td><button class="tk" data-id="t14" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Disneyland Paris (1 dia)</td><td>Ingresso com data marcada + <b>Park Hopper</b> (2 parques)</td><td>28/09</td><td>Irmã + sobrinha (+ quem for)</td><td><button class="tk" data-id="t12d" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Arco do Triunfo (subir ao topo)</td><td>Ingresso com horário marcado</td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t17" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Torre Eiffel (subir ao topo)</td><td>Ingresso com horário marcado · esgota</td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t20" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Cruzeiro pelo Sena</td><td>Bateaux Mouches / Pont-Neuf / Bateaux Parisiens</td><td>25/09</td><td>Todos (7)</td><td><button class="tk" data-id="t21" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Museu do Louvre</td><td>Horário marcado · <b>09:00</b> (1ª janela)</td><td>27/09</td><td>Todos (7)</td><td><button class="tk" data-id="t13" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
+        <tr><td>Sainte-Chapelle</td><td>Ingresso recomendado</td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t18" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
+        <tr><td>Notre-Dame de Paris (interior)</td><td>Entrada gratuita, mas <b>requer reserva online</b></td><td>26/09</td><td>Todos (7)</td><td><button class="tk" data-id="t19" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
+        <tr><td>Palácio de Versalhes</td><td>Horário marcado · <b>14:00</b> (afternoon slot)</td><td>27/09</td><td>Todos (7)</td><td><button class="tk" data-id="t14" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
         <tr><td>Reichstag (cúpula)</td><td>Gratuito, mas exige reserva</td><td>07–08/10</td><td>Grupo B (3)</td><td><button class="tk" data-id="t15" onclick="toggleTicket(this)">⬜ A reservar</button></td></tr>
         <tr><td>Castelo de Neuschwanstein</td><td>Tour guiado com horário marcado</td><td>04/10</td><td>Todos (7)</td><td><button class="tk" data-id="t16" onclick="toggleTicket(this)">⬜ A comprar</button></td></tr>
       </tbody>
@@ -541,19 +412,11 @@
       <thead><tr><th>Cidade</th><th>Datas</th><th>Noites × Pessoas</th><th>Total estadia (R$)</th><th>R$/pessoa/noite</th><th>Reserva</th></tr></thead>
       <tbody>
         <tr><td><b>Lisboa</b> · Apto Ricardo · <small>Rua da Rosa 106</small></td><td>23–25/09 · check-in 15h / check-out 11h</td><td>2 × 7</td><td><input class="budget-input" data-id="h-lis" data-nights="2" data-people="7" oninput="updateBudget()" placeholder="ex: 4000" value="4098"></td><td class="budget-total" data-for="h-lis">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-lis" placeholder="link da reserva" oninput="updateStayLink(this)" value="https://www.airbnb.com.br/rooms/29796104"><a class="link-go" data-for="h-lis" target="_blank" rel="noopener">↗</a><button class="status-btn done" data-id="h-lis" data-state="2" onclick="cycleStatus(this)">✅ Reservada</button></div></td></tr>
-        <tr class="hide-b hide-d"><td><b>Paris</b></td><td>25–30/09</td><td>5 × 7</td><td><input class="budget-input" data-id="h-par-ac" data-nights="5" data-people="7" oninput="updateBudget()" placeholder="ex: 18000"></td><td class="budget-total" data-for="h-par-ac">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-par-ac" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-par-ac" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-par-ac" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="only-b"><td><b>Paris</b> <small>(plano B)</small></td><td>25–29/09</td><td>4 × 7</td><td><input class="budget-input" data-id="h-par-b" data-nights="4" data-people="7" oninput="updateBudget()" placeholder="ex: 14500"></td><td class="budget-total" data-for="h-par-b">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-par-b" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-par-b" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-par-b" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="only-d"><td><b>Paris</b> <small>(plano D)</small></td><td>25–29/09</td><td>4 × 7</td><td><input class="budget-input" data-id="h-par-d" data-nights="4" data-people="7" oninput="updateBudget()" placeholder="ex: 14500"></td><td class="budget-total" data-for="h-par-d">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-par-d" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-par-d" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-par-d" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="hide-b hide-d"><td><b>Zurique</b></td><td>30/09–01/10</td><td>1 × 7</td><td><input class="budget-input" data-id="h-zur-ac" data-nights="1" data-people="7" oninput="updateBudget()" placeholder="ex: 4500"></td><td class="budget-total" data-for="h-zur-ac">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-zur-ac" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-zur-ac" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-zur-ac" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="only-b"><td><b>Zurique</b> <small>(plano B)</small></td><td>29–30/09</td><td>1 × 7</td><td><input class="budget-input" data-id="h-zur-b" data-nights="1" data-people="7" oninput="updateBudget()" placeholder="ex: 4500"></td><td class="budget-total" data-for="h-zur-b">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-zur-b" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-zur-b" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-zur-b" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="hide-b hide-d"><td><b>Lucerna</b></td><td>01–02/10</td><td>1 × 7</td><td><input class="budget-input" data-id="h-luc-ac" data-nights="1" data-people="7" oninput="updateBudget()" placeholder="ex: 4000"></td><td class="budget-total" data-for="h-luc-ac">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-luc-ac" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-luc-ac" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-luc-ac" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="only-b"><td><b>Lucerna</b> <small>(plano B)</small></td><td>30/09–02/10</td><td>2 × 7</td><td><input class="budget-input" data-id="h-luc-b" data-nights="2" data-people="7" oninput="updateBudget()" placeholder="ex: 8000"></td><td class="budget-total" data-for="h-luc-b">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-luc-b" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-luc-b" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-luc-b" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="only-d"><td><b>Lucerna</b> · <b>Roesli Guest House</b> <small>(2 quartos)</small></td><td>29/09–02/10</td><td>3 × 7</td><td><input class="budget-input" data-id="h-luc-d" data-nights="3" data-people="7" oninput="updateBudget()" placeholder="ex: 8500" value="8598"></td><td class="budget-total" data-for="h-luc-d">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-luc-d" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-luc-d" target="_blank" rel="noopener">↗</a><button class="status-btn done" data-id="h-luc-d" data-state="2" onclick="cycleStatus(this)">✅ Reservada</button></div></td></tr>
-        <tr><td><b>Munique</b></td><td>02–05/10</td><td>3 × 7</td><td><input class="budget-input" data-id="h-mun" data-nights="3" data-people="7" oninput="updateBudget()" placeholder="ex: 18000 (Oktoberfest!)"></td><td class="budget-total" data-for="h-mun">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-mun" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-mun" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-mun" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="hide-c"><td><b>Praga</b> <small>(Grupo B)</small></td><td>05–07/10</td><td>2 × 3</td><td><input class="budget-input" data-id="h-pra-abd" data-nights="2" data-people="3" oninput="updateBudget()" placeholder="ex: 2000"></td><td class="budget-total" data-for="h-pra-abd">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-pra-abd" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-pra-abd" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-pra-abd" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="only-c"><td><b>Praga</b> <small>(Grupo B · plano C)</small></td><td>07–09/10</td><td>2 × 3</td><td><input class="budget-input" data-id="h-pra-c" data-nights="2" data-people="3" oninput="updateBudget()" placeholder="ex: 2000"></td><td class="budget-total" data-for="h-pra-c">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-pra-c" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-pra-c" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-pra-c" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="hide-c"><td><b>Berlim</b> <small>(Grupo B)</small></td><td>07–09/10</td><td>2 × 3</td><td><input class="budget-input" data-id="h-ber-abd" data-nights="2" data-people="3" oninput="updateBudget()" placeholder="ex: 2500"></td><td class="budget-total" data-for="h-ber-abd">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-ber-abd" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-ber-abd" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-ber-abd" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
-        <tr class="only-c"><td><b>Berlim</b> <small>(Grupo B · plano C)</small></td><td>05–07/10</td><td>2 × 3</td><td><input class="budget-input" data-id="h-ber-c" data-nights="2" data-people="3" oninput="updateBudget()" placeholder="ex: 2500"></td><td class="budget-total" data-for="h-ber-c">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-ber-c" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-ber-c" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-ber-c" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
+        <tr><td><b>Paris</b></td><td>25–29/09</td><td>4 × 7</td><td><input class="budget-input" data-id="h-par-d" data-nights="4" data-people="7" oninput="updateBudget()" placeholder="ex: 14500"></td><td class="budget-total" data-for="h-par-d">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-par-d" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-par-d" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-par-d" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
+        <tr><td><b>Lucerna</b> · <b>Roesli Guest House</b> <small>(2 quartos)</small></td><td>29/09–02/10</td><td>3 × 7</td><td><input class="budget-input" data-id="h-luc-d" data-nights="3" data-people="7" oninput="updateBudget()" placeholder="ex: 8500" value="8598"></td><td class="budget-total" data-for="h-luc-d">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-luc-d" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-luc-d" target="_blank" rel="noopener">↗</a><button class="status-btn done" data-id="h-luc-d" data-state="2" onclick="cycleStatus(this)">✅ Reservada</button></div></td></tr>
+        <tr><td><b>Munique</b> · <b>gambino hotel WERKSVIERTEL</b> <small>(3 quartos queen) · Atelierstraße 7, Berg am Laim · Booking 5080.891.041 / PIN 2169</small></td><td>02–05/10 · check-in 15h / check-out 11h</td><td>3 × 7</td><td><input class="budget-input" data-id="h-mun" data-nights="3" data-people="7" oninput="updateBudget()" placeholder="ex: 13000" value="13359"></td><td class="budget-total" data-for="h-mun">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-mun" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-mun" target="_blank" rel="noopener">↗</a><button class="status-btn done" data-id="h-mun" data-state="2" onclick="cycleStatus(this)">✅ Reservada</button></div></td></tr>
+        <tr><td><b>Praga</b> <small>(Grupo B)</small></td><td>05–07/10</td><td>2 × 3</td><td><input class="budget-input" data-id="h-pra-abd" data-nights="2" data-people="3" oninput="updateBudget()" placeholder="ex: 2000"></td><td class="budget-total" data-for="h-pra-abd">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-pra-abd" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-pra-abd" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-pra-abd" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
+        <tr><td><b>Berlim</b> <small>(Grupo B)</small></td><td>07–09/10</td><td>2 × 3</td><td><input class="budget-input" data-id="h-ber-abd" data-nights="2" data-people="3" oninput="updateBudget()" placeholder="ex: 2500"></td><td class="budget-total" data-for="h-ber-abd">—</td><td><div class="stay-cell"><input class="link-input" data-id="h-ber-abd" placeholder="link da reserva" oninput="updateStayLink(this)"><a class="link-go" data-for="h-ber-abd" target="_blank" rel="noopener">↗</a><button class="status-btn" data-id="h-ber-abd" data-state="0" onclick="cycleStatus(this)">⬜ A buscar</button></div></td></tr>
       </tbody>
     </table>
 
@@ -572,21 +435,6 @@
 
 </div>
 <script>
-  function setPlan(p){
-    document.body.classList.remove('plan-b', 'plan-c', 'plan-d');
-    if(p === 'b') document.body.classList.add('plan-b');
-    if(p === 'c') document.body.classList.add('plan-c');
-    if(p === 'd') document.body.classList.add('plan-d');
-    var btnB = document.getElementById('btn-b');
-    var btnC = document.getElementById('btn-c');
-    var btnD = document.getElementById('btn-d');
-    if(btnB) btnB.classList.toggle('active', p === 'b');
-    if(btnC) btnC.classList.toggle('active', p === 'c');
-    if(btnD) btnD.classList.toggle('active', p === 'd');
-    if(typeof updateCount === 'function') updateCount();
-    if(typeof updateBudget === 'function') updateBudget();
-  }
-
   function showTab(t){
     var roteiro = (t === 'roteiro');
     var passagens = (t === 'passagens');
@@ -620,29 +468,12 @@
       if(s[b.dataset.id]){ b.classList.add('done'); b.textContent = '✅ Comprada'; }
     });
   }
-  function isHiddenByPlan(el){
-    var b = document.body;
-    var p = b.classList.contains('plan-d') ? 'd' : (b.classList.contains('plan-c') ? 'c' : (b.classList.contains('plan-b') ? 'b' : 'a'));
-    for(var n = el; n && n.nodeType === 1; n = n.parentNode){
-      var cl = n.classList;
-      if(!cl) continue;
-      if(p === 'a' && (cl.contains('only-b') || cl.contains('only-c') || cl.contains('only-d'))) return true;
-      if(p === 'b' && (cl.contains('only-a') || cl.contains('only-c') || cl.contains('only-d') || cl.contains('hide-b'))) return true;
-      if(p === 'c' && (cl.contains('only-b') || cl.contains('only-d') || cl.contains('hide-c'))) return true;
-      if(p === 'd' && (cl.contains('only-a') || cl.contains('only-b') || cl.contains('only-c') || cl.contains('hide-d'))) return true;
-    }
-    return false;
-  }
   function updateCount(){
     var ticks = document.querySelectorAll('.tk');
-    var visible = 0, done = 0;
-    ticks.forEach(function(b){
-      if(isHiddenByPlan(b)) return;
-      visible++;
-      if(b.classList.contains('done')) done++;
-    });
+    var done = 0;
+    ticks.forEach(function(b){ if(b.classList.contains('done')) done++; });
     var el = document.getElementById('tk-count');
-    if(el) el.textContent = done + ' de ' + visible + ' marcadas como compradas.';
+    if(el) el.textContent = done + ' de ' + ticks.length + ' marcadas como compradas.';
   }
   // orçamento de hospedagem (em R$)
   function fmtBRL(n){
@@ -660,9 +491,7 @@
       if(ppEl){
         ppEl.textContent = ppn > 0 ? fmtBRL(ppn) : '—';
       }
-      if(!isHiddenByPlan(input) && total > 0){
-        grand += total;
-      }
+      if(total > 0) grand += total;
     });
     var grandEl = document.getElementById('budget-grand');
     if(grandEl) grandEl.textContent = fmtBRL(grand);
